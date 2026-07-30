@@ -26,6 +26,11 @@ imports = with modules; [
 	nano
 	sudo
 	dhcpcd
+	iwd	
+	nix-daemon
+	polkit
+	rtkit
+	pipewire
 	
   ];
 
@@ -86,6 +91,9 @@ imports = with modules; [
     thermald.enable = true;
     gvfs.enable = true;
     power-profiles-daemon.enable = true;
+    power-profiles-daemon.extraGroups = lib.optionals config.services.seatd.enable [
+    config.services.seatd.group
+    ];
     fstrim.enable = true;
     fstrim.interval = "daily";
     upower.enable = true;
@@ -102,15 +110,17 @@ imports = with modules; [
 };
 };*/
  };
-
-  xdg.portal.enable = true;
-  fonts = {
-  fontconfig.enable = true;
-  enableDefaultPackages = true;
-  packages = with pkgs; [
-  nerd-fonts.fira-code
-];
-};
+	xdg.autostart.enable =  true;
+    xdg.icons.enable = true;
+    xdg.mime.enable = true;
+  	xdg.portal.enable = true;
+ 	fonts = {
+ 	fontconfig.enable = true;
+  	enableDefaultPackages = true;
+  	packages = with pkgs; [
+  	nerd-fonts.fira-code
+	];
+  };
 
   networking.hostName = "t480"; # Define your hostname.
 
@@ -218,5 +228,30 @@ hardware.console.keyMap = "de";
         rfkill      root:${config.services.seatd.group} 660
       ''
     ];
-  
+  providers.privileges.rules =
+        lib.optionals config.services.seatd.enable [
+          {
+            command = "/run/current-system/sw/bin/poweroff";
+            groups = [ config.services.seatd.group ];
+            requirePassword = false;
+          }
+          {
+            command = "/run/current-system/sw/bin/reboot";
+            groups = [ config.services.seatd.group ];
+            requirePassword = false;
+          }
+        ]
+        ++ lib.optionals (config.services.seatd.enable && config.programs.zzz.enable) [
+          {
+            command = "/run/current-system/sw/bin/zzz";
+            groups = [ config.services.seatd.group ];
+            requirePassword = false;
+          }
+          {
+            command = "/run/current-system/sw/bin/ZZZ";
+            groups = [ config.services.seatd.group ];
+            requirePassword = false;
+          }
+        ];
+    };
 }
