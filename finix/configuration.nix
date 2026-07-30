@@ -8,8 +8,6 @@ imports = with modules; [
     gnome-keyring
     gvfs
     micro
- #   niri
-#    noisetorch
 	getty
     pmount
     seahorse
@@ -94,6 +92,9 @@ imports = with modules; [
    	wireplumber.enable = true;
    	resolvconf.enable = true;
   };
+
+# additional audio
+users.groups.audio.gid = config.ids.gids.audio;
 
   services = {
     polkit.enable = true;
