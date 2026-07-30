@@ -180,7 +180,7 @@ hardware.graphics.enable32Bit = true;
       LIBVA_DRIVER_NAME.default = "iHD";
     };
   
-hardware.console.keyMap = "de";
+#hardware.console.keyMap = "de";
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
