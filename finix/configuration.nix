@@ -33,17 +33,24 @@ imports = with modules; [
 	limine
 	nftables
 	wireplumber
+	sysklogd
   ];
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # graphical runlevel
   finit.runlevel = 3;
+
+   finit.cgroups.system.settings = {
+      "cpu.weight" = 100;
+    };
+
 
   finit.services.nix-daemon = {
     environment.CURL_CA_BUNDLE = config.security.pki.caBundle;
   };
-  
+    
 
   services.nix-daemon = {
     enable = true;
@@ -94,7 +101,6 @@ imports = with modules; [
     #gardendevd.enable = true;
 
     dhcpcd.enable = true;
-    rtkit.enable = true;
     thermald.enable = true;
     gvfs.enable = true;
     power-profiles-daemon.enable = true;
@@ -195,7 +201,7 @@ hardware.console.keyMap = "de";
     sway-audio-idle-inhibit
     swayidle
     swaynotificationcenter
-    brightnessctl
+   # brightnessctl
     playerctl
     papirus-icon-theme
     gnome-themes-extra
@@ -265,7 +271,6 @@ hardware.console.keyMap = "de";
             requirePassword = false;
           }
         ];
-    };
   # https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes#Simple_IP/IPv6_Firewall
   services.nftables.configFile = pkgs.writeText "nftables.conf" ''
         flush ruleset
