@@ -10,6 +10,7 @@ imports = with modules; [
     micro
  #   niri
 #    noisetorch
+	getty
     pmount
     seahorse
     sway
@@ -87,6 +88,9 @@ imports = with modules; [
     brightnessctl.enable = true;
     zzz.enable = true;
     pipewire.enable = true;
+    pipewire.jack.enable = true;
+    pipewire.alsa.enable = true;
+    pipewire.alsa.support32Bit = true;
    	wireplumber.enable = true;
    	resolvconf.enable = true;
   };
@@ -97,6 +101,11 @@ imports = with modules; [
     sysklogd.enable = true;
 
     dbus.enable = true;
+    dbus.packages = [
+        pkgs.dconf
+        pkgs.xfconf
+        pkgs.thunar
+    ];
 
    	mdevd.enable = true;
    	# required for graphical environments
@@ -104,7 +113,9 @@ imports = with modules; [
     #gardendevd.enable = true;
 
     chrony.enable = true;
-
+	getty.package = pkgs.util-linux // {
+	  meta.mainProgram = "agetty";
+	};
     dhcpcd.enable = true;
     thermald.enable = true;
     gvfs.enable = true;
@@ -117,8 +128,8 @@ imports = with modules; [
           "-r"
           "3600"
         ];
-    #fstrim.enable = true;
-   # fstrim.interval = "daily";
+    fstrim.enable = true;
+    fstrim.interval = "daily";
     upower.enable = true;
     #fwupd.enable = true;
 	nftables.enable = true;
@@ -142,6 +153,10 @@ imports = with modules; [
     xdg.icons.enable = true;
     xdg.mime.enable = true;
   	xdg.portal.enable = true;
+  	xdg.portal.portals = [
+  	    pkgs.xdg-desktop-portal-gnome
+  	    pkgs.xdg-desktop-portal-gtk
+  	  ];
  	fonts = {
  	fontconfig.enable = true;
   	enableDefaultPackages = true;
@@ -169,18 +184,20 @@ imports = with modules; [
     password = "$6$1aOsu4xRRBDJWA3O$yUIEmHIzcJ2KczaW1RcVc6ji.vtCXND57iIqt8NfZHL7326zAViJrTGZriK.e1/5JovKqh/wElp7VmQB2TbLA."; #pass=vitrial
     packages = with pkgs; [];
   };
+
+   # graphics
+	hardware.graphics.enable = true;
+	hardware.graphics.enable32Bit = true;
+ 	# https://wiki.nixos.org/wiki/Accelerated_Video_Playback#Intel
+  	hardware.graphics.extraPackages = [ pkgs.intel-media-driver ];
+  	hardware.graphics.extraPackages32 = [ pkgs.pkgsi686Linux.intel-media-driver ];
+  	hardware.console.keyMap = "de";
   
-hardware.graphics.enable = true;
-hardware.graphics.enable32Bit = true;
- # https://wiki.nixos.org/wiki/Accelerated_Video_Playback#Intel
-  hardware.graphics.extraPackages = [ pkgs.intel-media-driver ];
-  hardware.graphics.extraPackages32 = [ pkgs.pkgsi686Linux.intel-media-driver ];
-  security.pam.environment = {
+  	security.pam.environment = {
       # https://wiki.nixos.org/wiki/Accelerated_Video_Playback#Intel
       LIBVA_DRIVER_NAME.default = "iHD";
     };
   
-#hardware.console.keyMap = "de";
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
