@@ -25,6 +25,8 @@ imports = with modules; [
 	nano
 	sudo
 	dhcpcd
+	chronyd
+	earlyoom
 	iwd	
 	nix-daemon
 	polkit
@@ -43,7 +45,7 @@ imports = with modules; [
   finit.runlevel = 3;
 
    finit.cgroups.system.settings = {
-      "cpu.weight" = 100;
+     "cpu.weight" = 100;
     };
 
 
@@ -86,6 +88,7 @@ imports = with modules; [
     zzz.enable = true;
     pipewire.enable = true;
    	wireplumber.enable = true;
+   	resolvconf.enable = true;
   };
 
   services = {
@@ -100,20 +103,27 @@ imports = with modules; [
     mdevd.nlgroups = 4;
     #gardendevd.enable = true;
 
+    chrony.enable = true;
+
     dhcpcd.enable = true;
     thermald.enable = true;
     gvfs.enable = true;
     power-profiles-daemon.enable = true;
-    power-profiles-daemon.extraGroups = lib.optionals config.services.seatd.enable [
+    power-profiles-daemon.extraGroups =  [
     config.services.seatd.group
     ];
-    fstrim.enable = true;
-    fstrim.interval = "daily";
+    earlyoom.enable = lib.mkDefault true;
+    earlyoom.extraArgs = [
+          "-r"
+          "3600"
+        ];
+    #fstrim.enable = true;
+   # fstrim.interval = "daily";
     upower.enable = true;
     #fwupd.enable = true;
 	nftables.enable = true;
-	rtkit.enable = lib.mkDefault true;
-	rtkit.extraGroups = lib.optionals config.services.seatd.enable [
+	rtkit.enable =  true;
+	rtkit.extraGroups =  [
 	      config.services.seatd.group
 	 ];
     iwd.enable = true;
@@ -153,17 +163,8 @@ imports = with modules; [
      "wheel" 
      "video" 
       config.services.seatd.group 
-      config.hardware.i2c.group
-      #config.hardware.uinput.group
       "audio"
-      # "gamemode"
-     # "incus-admin"
       "input"
-     # "keyd"
-     # "kvm"
-     # "vboxusers"
-      "video"
-      "wheel"
         ];
     password = "$6$1aOsu4xRRBDJWA3O$yUIEmHIzcJ2KczaW1RcVc6ji.vtCXND57iIqt8NfZHL7326zAViJrTGZriK.e1/5JovKqh/wElp7VmQB2TbLA."; #pass=vitrial
     packages = with pkgs; [];
@@ -174,6 +175,10 @@ hardware.graphics.enable32Bit = true;
  # https://wiki.nixos.org/wiki/Accelerated_Video_Playback#Intel
   hardware.graphics.extraPackages = [ pkgs.intel-media-driver ];
   hardware.graphics.extraPackages32 = [ pkgs.pkgsi686Linux.intel-media-driver ];
+  security.pam.environment = {
+      # https://wiki.nixos.org/wiki/Accelerated_Video_Playback#Intel
+      LIBVA_DRIVER_NAME.default = "iHD";
+    };
   
 hardware.console.keyMap = "de";
   # List packages installed in system profile. To search, run:
@@ -246,8 +251,7 @@ hardware.console.keyMap = "de";
         rfkill      root:${config.services.seatd.group} 660
       ''
     ];
-  providers.privileges.rules =
-        lib.optionals config.services.seatd.enable [
+  providers.privileges.rules = [
           {
             command = "/run/current-system/sw/bin/poweroff";
             groups = [ config.services.seatd.group ];
@@ -258,8 +262,6 @@ hardware.console.keyMap = "de";
             groups = [ config.services.seatd.group ];
             requirePassword = false;
           }
-        ]
-        ++ lib.optionals (config.services.seatd.enable && config.programs.zzz.enable) [
           {
             command = "/run/current-system/sw/bin/zzz";
             groups = [ config.services.seatd.group ];
