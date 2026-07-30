@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "community-modules": {
+      "locked": {
+        "lastModified": 1785159856,
+        "narHash": "sha256-1GhJnHSAxkM+z8cX6qIAfCsdKaH6HnZGErYhRzZvYj0=",
+        "owner": "finix-community",
+        "repo": "community-modules",
+        "rev": "287a1626dea05cfffcb538efe3ba34c87a018c00",
+        "type": "github"
+      },
+      "original": {
+        "owner": "finix-community",
+        "repo": "community-modules",
+        "type": "github"
+      }
+    },
     "finix": {
       "locked": {
         "lastModified": 1785015387,
@@ -34,6 +49,7 @@
     },
     "root": {
       "inputs": {
+        "community-modules": "community-modules",
         "finix": "finix",
         "nixpkgs": "nixpkgs"
       }

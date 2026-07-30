@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, modules, lib, ... }:
 
 {
 
@@ -8,20 +8,24 @@ imports = with modules; [
     gnome-keyring
     gvfs
     micro
-    niri
-    noisetorch
+ #   niri
+#    noisetorch
     pmount
     seahorse
     sway
     thermald
 	fwupd
-	seatd
+#	seatd
 	upower
 	brightnessctl
 	seahorse
 	zzz
 	limine
 	power-profiles-daemon
+	bash	
+	nano
+	sudo
+	dhcpcd
 	
   ];
 
