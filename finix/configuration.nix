@@ -14,8 +14,7 @@ imports = with modules; [
     seahorse
     sway
     thermald
-	fwupd
-#	seatd
+	#fwupd
 	upower
 	brightnessctl
 	seahorse
@@ -31,7 +30,9 @@ imports = with modules; [
 	polkit
 	rtkit
 	pipewire
-	
+	limine
+	nftables
+	wireplumber
   ];
 
   # Use latest kernel.
@@ -42,10 +43,12 @@ imports = with modules; [
   finit.services.nix-daemon = {
     environment.CURL_CA_BUNDLE = config.security.pki.caBundle;
   };
+  
 
   services.nix-daemon = {
     enable = true;
     settings = {
+      auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [
         "root"
@@ -74,6 +77,8 @@ imports = with modules; [
     gnome-keyring.enable = true;
     brightnessctl.enable = true;
     zzz.enable = true;
+    pipewire.enable = true;
+   	wireplumber.enable = true;
   };
 
   services = {
@@ -84,6 +89,8 @@ imports = with modules; [
     dbus.enable = true;
 
    	mdevd.enable = true;
+   	# required for graphical environments
+    mdevd.nlgroups = 4;
     #gardendevd.enable = true;
 
     dhcpcd.enable = true;
@@ -97,10 +104,15 @@ imports = with modules; [
     fstrim.enable = true;
     fstrim.interval = "daily";
     upower.enable = true;
-    fwupd.enable = true;
-
+    #fwupd.enable = true;
+	nftables.enable = true;
+	rtkit.enable = lib.mkDefault true;
+	rtkit.extraGroups = lib.optionals config.services.seatd.enable [
+	      config.services.seatd.group
+	 ];
     iwd.enable = true;
     seatd.enable = true;
+    
     /*greetd = {
     enable = true;
     settings = {
@@ -254,4 +266,48 @@ hardware.console.keyMap = "de";
           }
         ];
     };
+  # https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes#Simple_IP/IPv6_Firewall
+  services.nftables.configFile = pkgs.writeText "nftables.conf" ''
+        flush ruleset
+  
+        table firewall {
+          chain incoming {
+            type filter hook input priority 0; policy drop;
+  
+            # established/related connections
+            ct state established,related accept
+  
+            # loopback interface
+            iifname lo accept
+  
+            # icmp
+            icmp type echo-request accept
+  
+            # open tcp ports: sshd (22)
+            tcp dport { 22 } accept
+          }
+        }
+  
+        table ip6 firewall {
+          chain incoming {
+            type filter hook input priority 0; policy drop;
+  
+            # established/related connections
+            ct state established,related accept
+  
+            # invalid connections
+            ct state invalid drop
+  
+            # loopback interface
+            iifname lo accept
+  
+            # icmp
+            # routers may also want: mld-listener-query, nd-router-solicit
+            icmpv6 type { echo-request, nd-neighbor-solicit } accept
+  
+            # open tcp ports: sshd (22)
+            tcp dport { 22 } accept
+          }
+        }
+      '';
 }
