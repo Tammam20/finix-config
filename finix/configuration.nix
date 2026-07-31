@@ -5,6 +5,7 @@
 
 imports = with modules; [
     fstrim
+    bluetooth
     gnome-keyring
     gvfs
     micro
@@ -85,12 +86,14 @@ imports = with modules; [
     gnome-keyring.enable = true;
     brightnessctl.enable = true;
     zzz.enable = true;
+    resolvconf.enable = true;
+    
+    # audio
     pipewire.enable = true;
     pipewire.jack.enable = true;
     pipewire.alsa.enable = true;
     pipewire.alsa.support32Bit = true;
    	wireplumber.enable = true;
-   	resolvconf.enable = true;
   };
 
 # additional audio
@@ -129,6 +132,8 @@ users.groups.audio.gid = config.ids.gids.audio;
           "-r"
           "3600"
         ];
+    bluetooth.enable = true;
+    bluetooth.settings.Policy.AutoEnable = false;
     fstrim.enable = true;
     fstrim.interval = "daily";
     upower.enable = true;
@@ -154,19 +159,17 @@ users.groups.audio.gid = config.ids.gids.audio;
     xdg.icons.enable = true;
     xdg.mime.enable = true;
   	xdg.portal.enable = true;
+  	xdg.terminal-exec.enable = true;
+  	xdg.terminal-exec.settings = {
+  		default = [
+  			"foot.desktop"
+  		];
+  	};
   	xdg.portal.portals = [
-  	    pkgs.xdg-desktop-portal-gnome
   	    pkgs.xdg-desktop-portal-gtk
   	    pkgs.xdg-desktop-portal-wlr
   	  ];
- 	fonts = {
- 	fontconfig.enable = true;
-  	enableDefaultPackages = true;
-  	packages = with pkgs; [
-  	nerd-fonts.fira-code
-	];
-  };
-
+ 	
   networking.hostName = "t480"; # Define your hostname.
 
   # Set your time zone.
@@ -183,7 +186,7 @@ users.groups.audio.gid = config.ids.gids.audio;
       "audio"
       "input"
         ];
-    password = "$6$1aOsu4xRRBDJWA3O$yUIEmHIzcJ2KczaW1RcVc6ji.vtCXND57iIqt8NfZHL7326zAViJrTGZriK.e1/5JovKqh/wElp7VmQB2TbLA."; #pass=vitrial
+    password = "$y$j9T$xGi7MwQ4ibnT7yMU0l4Xq/$aw2ymKFjLE/SQJ.LNmtFInUYdPRAzMa7wwkCLpCKOA7"; #pass=vitrial
     packages = with pkgs; [];
   };
 
@@ -199,10 +202,50 @@ users.groups.audio.gid = config.ids.gids.audio;
       # https://wiki.nixos.org/wiki/Accelerated_Video_Playback#Intel
       LIBVA_DRIVER_NAME.default = "iHD";
     };
+
+  fonts = {
+   	fontconfig = { 
+   	enable = true; 
+	defaultFonts = {
+	        serif      = [ "Noto Serif" ];
+	        sansSerif  = [ "Noto Sans" ];
+	        monospace  = [ "JetBrainsMono Nerd Font" ];
+	        emoji      = [ "Noto Color Emoji" ];
+	      };
+   	};
+   	
+    	enableDefaultPackages = true;
+    	packages = with pkgs; [
+    	nerd-fonts.jetbrains-mono
+    	noto-fonts
+   		noto-fonts-cjk-sans
+   		noto-fonts-color-emoji
+   		liberation_ttf
+   		dejavu_fonts
+   		material-symbols
+   		google-fonts
+  	];
+    };
+  
+
+  # audio fix
+  environment.etc."profile.d/pipewire-session.sh" = {
+        text = ''
+          if [ -n "$XDG_RUNTIME_DIR" ] && [ ! -e "$XDG_RUNTIME_DIR/pipewire-session.lock" ]; then
+            if ( set -o noclobber; : > "$XDG_RUNTIME_DIR/pipewire-session.lock" ) 2>/dev/null; then
+              ${config.programs.pipewire.package}/bin/pipewire >/dev/null 2>&1 &
+              ${config.programs.pipewire.package}/bin/pipewire-pulse >/dev/null 2>&1 &
+              ${lib.optionalString config.programs.wireplumber.enable "${config.programs.wireplumber.package}/bin/wireplumber >/dev/null 2>&1 &"}
+            fi
+          fi
+        '';
+      };
   
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+  	bluez
+  	blueman
     vim
     wget
     nano
@@ -225,7 +268,6 @@ users.groups.audio.gid = config.ids.gids.audio;
     sway-audio-idle-inhibit
     swayidle
     swaynotificationcenter
-   # brightnessctl
     playerctl
     papirus-icon-theme
     gnome-themes-extra
@@ -233,6 +275,8 @@ users.groups.audio.gid = config.ids.gids.audio;
     wl-clip-persist
     waybar
     wev
+    pavucontrol
+    thunar
   ];
 
   # TODO: shouldn't this just be included by default?
