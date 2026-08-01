@@ -155,7 +155,7 @@ users.groups.audio.gid = config.ids.gids.audio;
 };
 };*/
  };
-	xdg.autostart.enable =  true;
+	xdg.autostart.enable = true;
     xdg.icons.enable = true;
     xdg.mime.enable = true;
   	xdg.portal.enable = true;
@@ -207,23 +207,18 @@ users.groups.audio.gid = config.ids.gids.audio;
    	fontconfig = { 
    	enable = true; 
 	defaultFonts = {
-	        serif      = [ "Noto Serif" ];
-	        sansSerif  = [ "Noto Sans" ];
-	        monospace  = [ "JetBrainsMono Nerd Font" ];
-	        emoji      = [ "Noto Color Emoji" ];
+	        #serif      = [ "Noto Serif" ];
+	        #sansSerif  = [ "Noto Sans" ];
+	        monospace  = [ "JetBrainsMono Nerd Font Mono" ];
+	        #emoji      = [ "Noto Color Emoji" ];
 	      };
    	};
    	
     	enableDefaultPackages = true;
     	packages = with pkgs; [
     	nerd-fonts.jetbrains-mono
-    	noto-fonts
-   		noto-fonts-cjk-sans
-   		noto-fonts-color-emoji
-   		liberation_ttf
-   		dejavu_fonts
-   		material-symbols
-   		google-fonts
+    	nerd-fonts.symbols-only
+    	symbola
   	];
     };
   
