@@ -86,7 +86,7 @@ imports = with modules; [
     gnome-keyring.enable = true;
     brightnessctl.enable = true;
     zzz.enable = true;
-    resolvconf.enable = true;
+    #resolvconf.enable = true;
     
     # audio
     pipewire.enable = true;
@@ -109,6 +109,7 @@ users.groups.audio.gid = config.ids.gids.audio;
         pkgs.dconf
         pkgs.xfconf
         pkgs.thunar
+        pkgs.at-spi2-core
     ];
 
    	mdevd.enable = true;
@@ -313,21 +314,25 @@ users.groups.audio.gid = config.ids.gids.audio;
           {
             command = "/run/current-system/sw/bin/poweroff";
             groups = [ config.services.seatd.group ];
+            runAs = "root";
             requirePassword = false;
           }
           {
             command = "/run/current-system/sw/bin/reboot";
             groups = [ config.services.seatd.group ];
+            runAs = "root";
             requirePassword = false;
           }
           {
             command = "/run/current-system/sw/bin/zzz";
             groups = [ config.services.seatd.group ];
+            runAs = "root";
             requirePassword = false;
           }
           {
             command = "/run/current-system/sw/bin/ZZZ";
             groups = [ config.services.seatd.group ];
+            runAs = "root";
             requirePassword = false;
           }
         ];
