@@ -187,7 +187,7 @@ users.groups.audio.gid = config.ids.gids.audio;
       "audio"
       "input"
         ];
-    password = "$y$j9T$xGi7MwQ4ibnT7yMU0l4Xq/$aw2ymKFjLE/SQJ.LNmtFInUYdPRAzMa7wwkCLpCKOA7"; #pass=vitrial
+    password = "$y$j9T$xGi7MwQ4ibnT7yMU0l4Xq/$aw2ymKFjLE/SQJ.LNmtFInUYdPRAzMa7wwkCLpCKOA7"; #pass=hh
     packages = with pkgs; [];
   };
 
@@ -222,7 +222,15 @@ users.groups.audio.gid = config.ids.gids.audio;
     	symbola
   	];
     };
-  
+
+
+    # libvirt
+    finit.services.libvirtd = {
+          description = "libvirt virtualisation daemon";
+          runlevels   = "2345";
+          conditions  = [ "service/syslogd/ready" ];
+          command     = "${pkgs.libvirt}/bin/libvirtd";
+        };
   
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -260,6 +268,35 @@ users.groups.audio.gid = config.ids.gids.audio;
     wev
     pavucontrol
     thunar
+    dconf
+    xfconf
+    htop
+    atop
+    fastfetch
+    lm_sensors
+    dconf-editor
+    virt-manager
+	qemu
+    virt-viewer
+    spice-gtk
+	virtiofsd
+	file-roller
+  	shellcheck
+  	powertop
+  	s-tui
+  	multimarkdown
+  	qbittorrent
+  	nixfmt
+  	nil
+  	emacs
+  	tldr
+  	pciutils
+ 	usbutils
+ 	coreutils
+  	clang
+  	ripgrep
+ 	fd
+  	lshw
   ];
 
   # TODO: shouldn't this just be included by default?
