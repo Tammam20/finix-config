@@ -186,6 +186,7 @@ users.groups.audio.gid = config.ids.gids.audio;
       config.services.seatd.group 
       "audio"
       "input"
+      "libvirtd"
         ];
     password = "$y$j9T$xGi7MwQ4ibnT7yMU0l4Xq/$aw2ymKFjLE/SQJ.LNmtFInUYdPRAzMa7wwkCLpCKOA7"; #pass=hh
     packages = with pkgs; [];
