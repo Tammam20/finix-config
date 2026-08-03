@@ -205,6 +205,13 @@ users.groups.audio.gid = config.ids.gids.audio;
       LIBVA_DRIVER_NAME.default = "iHD";
     };
 
+	# qt theme
+	environment.variables = {
+		QT_QPA_PLATFORMTHEME = "gnome";
+		QT_STYLE_OVERRIDE = "adwaita-dark";
+	};
+	
+
   fonts = {
    	fontconfig = { 
    	enable = true; 
