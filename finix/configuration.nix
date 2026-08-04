@@ -5,7 +5,7 @@
 
 imports = with modules; [
     fstrim
-    bluetooth
+    #bluetooth
     gnome-keyring
     gvfs
     micro
@@ -133,8 +133,8 @@ users.groups.audio.gid = config.ids.gids.audio;
           "-r"
           "3600"
         ];
-    bluetooth.enable = true;
-    bluetooth.settings.Policy.AutoEnable = false;
+    #bluetooth.enable = true;
+    #bluetooth.settings.Policy.AutoEnable = false;
     fstrim.enable = true;
     fstrim.interval = "daily";
     upower.enable = true;
@@ -243,8 +243,10 @@ users.groups.audio.gid = config.ids.gids.audio;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  	bluez
-  	blueman
+    adwaita-qt
+    adwaita-qt6
+  	#bluez
+  	#blueman
     vim
     wget
     nano
