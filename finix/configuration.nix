@@ -86,7 +86,7 @@ imports = with modules; [
     gnome-keyring.enable = true;
     brightnessctl.enable = true;
     zzz.enable = true;
-    #resolvconf.enable = true;
+    resolvconf.enable = true;
     
     # audio
     pipewire.enable = true;
