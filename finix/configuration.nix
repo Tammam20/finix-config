@@ -280,8 +280,8 @@ users.groups.audio.gid = config.ids.gids.audio;
     thunar
     dconf
     xfconf
-    htop
-    atop
+    btop
+    #atop
     fastfetch
     lm_sensors
     dconf-editor
