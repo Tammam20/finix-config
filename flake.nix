@@ -46,8 +46,8 @@
       nixosConfigurations.t480 = finix.lib.finixSystem {
         inherit (pkgs) lib;
 
-        specialArgs.modules = {
-          inherit (community-modules.nixosModules)
+       /* specialArgs.modules = {
+          #inherit (community-modules.nixosModules)
          # fastfetch
            # cups
            # dinit
@@ -58,13 +58,13 @@
           #noisetorch = toString nixpkgs + "/nixos/modules/programs/noisetorch.nix";
           #flirc = toString nixpkgs + "/nixos/modules/hardware/flirc.nix";
           #xfconf = ./xfconf.nix;
-        };
+        };*/
 
         modules = [
 
           ./finix/configuration.nix
           ./finix/hardware-configuration.nix
-          inputs.community-modules.nixosModules.fastfetch
+          community-modules.nixosModules.fastfetch
           #./pam.nix
           #./sops
           # ./openbox.nix
