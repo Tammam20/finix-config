@@ -48,6 +48,7 @@
 
         specialArgs.modules = {
           inherit (community-modules.nixosModules)
+          fastfetch
            # cups
            # dinit
            # laptop
