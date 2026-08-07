@@ -2,7 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     finix.url = "github:finix-community/finix?ref=main";
-#    community-modules.url = "github:finix-community/community-modules"; # "github:finix-community/community-modules";
+    community-modules.url = "github:finix-community/community-modules"; # "github:finix-community/community-modules";
    # sops-nix.url = "github:Mic92/sops-nix";
    # sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -15,7 +15,7 @@
       self,
       nixpkgs,
       finix,
- #     community-modules,
+      community-modules,
  #     sops-nix,
  #     noctalia,
     }:
@@ -46,11 +46,11 @@
       nixosConfigurations.t480 = finix.lib.finixSystem {
         inherit (pkgs) lib;
 
-      /*  specialArgs.modules = {
+        specialArgs.modules = {
           inherit (community-modules.nixosModules)
-            cups
-            dinit
-            laptop
+           # cups
+           # dinit
+           # laptop
             # turnstile
             ;
 
