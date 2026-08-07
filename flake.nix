@@ -77,10 +77,10 @@
               name = "local";
       
               paths = [
-                /*pkgs.asciinema
-                pkgs.delta*/
-                #pkgs.fastfetch
-               /* pkgs.glow
+                pkgs.asciinema
+                pkgs.delta
+                pkgs.fastfetch
+                pkgs.glow
                 pkgs.incus
                 # pkgs.lazycut
                 pkgs.lon
@@ -94,7 +94,7 @@
                 pkgs.vault
                 pkgs.vex-tui
                 pkgs.wlvncc
-                pkgs.yazi*/
+                pkgs.yazi
               ];
             };*/
     };
