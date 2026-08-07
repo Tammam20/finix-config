@@ -5,7 +5,6 @@
 
 imports = with modules; [
     fstrim
-    inputs.community-modules.nixosModules.fastfetch
     #bluetooth
     gnome-keyring
     gvfs
