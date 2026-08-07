@@ -57,7 +57,7 @@
           #noisetorch = toString nixpkgs + "/nixos/modules/programs/noisetorch.nix";
           #flirc = toString nixpkgs + "/nixos/modules/hardware/flirc.nix";
           #xfconf = ./xfconf.nix;
-        };*/
+        };
 
         modules = [
 
