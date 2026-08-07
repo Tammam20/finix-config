@@ -48,7 +48,7 @@
 
         specialArgs.modules = {
           inherit (community-modules.nixosModules)
-          fastfetch
+         # fastfetch
            # cups
            # dinit
            # laptop
@@ -64,6 +64,7 @@
 
           ./finix/configuration.nix
           ./finix/hardware-configuration.nix
+          inputs.community-modules.nixosModules.fastfetch
           #./pam.nix
           #./sops
           # ./openbox.nix
