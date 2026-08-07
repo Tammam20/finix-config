@@ -73,5 +73,29 @@
           { nixpkgs.pkgs = pkgs; }
         ];
       };
+     /* packages.x86_64-linux.local = pkgs.buildEnv {
+              name = "local";
+      
+              paths = [
+                /*pkgs.asciinema
+                pkgs.delta*/
+                #pkgs.fastfetch
+               /* pkgs.glow
+                pkgs.incus
+                # pkgs.lazycut
+                pkgs.lon
+                pkgs.marp-cli
+                pkgs.mob
+                pkgs.nh
+                pkgs.nixd
+                pkgs.nixfmt
+                pkgs.python3Packages.python-lsp-server
+                pkgs.tdf
+                pkgs.vault
+                pkgs.vex-tui
+                pkgs.wlvncc
+                pkgs.yazi*/
+              ];
+            };*/
     };
 }
