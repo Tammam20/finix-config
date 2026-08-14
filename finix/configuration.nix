@@ -131,6 +131,7 @@ users.groups.audio.gid = config.ids.gids.audio;
         pkgs.xfconf
         pkgs.thunar
         pkgs.at-spi2-core
+        pkgs.tumbler
     ];
 
    	mdevd.enable = true;
@@ -264,6 +265,8 @@ users.groups.audio.gid = config.ids.gids.audio;
   	security.pam.environment = {
       # https://wiki.nixos.org/wiki/Accelerated_Video_Playback#Intel
       LIBVA_DRIVER_NAME.default = "iHD";
+      # sets NIX_PATH env variable for ad hoc nix shells
+      NIX_PATH.default = "nixpkgs=${pkgs.path}";
     };
 
 	# qt theme
