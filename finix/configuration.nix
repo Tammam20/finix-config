@@ -368,7 +368,7 @@ users.groups.audio.gid = config.ids.gids.audio;
   	ripgrep
  	fd
   	lshw
-  	noctalia-shell
+  	#noctalia-shell
   ];
 
   # TODO: shouldn't this just be included by default?
