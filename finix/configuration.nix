@@ -131,7 +131,7 @@ users.groups.audio.gid = config.ids.gids.audio;
         pkgs.xfconf
         pkgs.thunar
         pkgs.at-spi2-core
-        pkgs.tumbler
+        #pkgs.tumbler
     ];
 
    	mdevd.enable = true;
