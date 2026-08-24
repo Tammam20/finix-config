@@ -5,7 +5,7 @@
 
 imports = with modules; [
     fstrim
-    #bluetooth
+    bluetooth
     gnome-keyring
     gvfs
     micro
@@ -134,10 +134,10 @@ users.groups.audio.gid = config.ids.gids.audio;
         #pkgs.tumbler
     ];
 
-   	mdevd.enable = true;
+   	#mdevd.enable = true;
    	# required for graphical environments
-    mdevd.nlgroups = 4;
-    #gardendevd.enable = true;
+    #mdevd.nlgroups = 4;
+    gardendevd.enable = true;
 
     chrony.enable = true;
 	getty.package = pkgs.util-linux // {
@@ -155,8 +155,8 @@ users.groups.audio.gid = config.ids.gids.audio;
           "-r"
           "3600"
         ];
-    #bluetooth.enable = true;
-    #bluetooth.settings.Policy.AutoEnable = false;
+    bluetooth.enable = true;
+    bluetooth.settings.Policy.AutoEnable = false;
     fstrim.enable = true;
     fstrim.interval = "daily";
     upower.enable = true;
