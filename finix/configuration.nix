@@ -150,7 +150,7 @@ users.groups.audio.gid = config.ids.gids.audio;
     power-profiles-daemon.extraGroups =  [
     config.services.seatd.group
     ];
-    earlyoom.enable = lib.mkDefault true;
+    earlyoom.enable =  true;
     earlyoom.extraArgs = [
           "-r"
           "3600"
@@ -307,8 +307,12 @@ users.groups.audio.gid = config.ids.gids.audio;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    gcc
+    xdg-utils
     adwaita-qt
     adwaita-qt6
+    qgnomeplatform
+    qgnomeplatform-qt6
   	#bluez
   	#blueman
     vim
