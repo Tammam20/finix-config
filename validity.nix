@@ -16,14 +16,14 @@ imports = [
 		    description = "open-fprintd service";
 		    runlevels = "2345";
 		    conditions = "service/syslogd/ready";
-		    command = "${pkgs.open-fprintd}/bin/open-fprintd";
+		    command = "${pkgs.open-fprintd}/lib/open-fprintd";
 		  };
     
 	finit.services.python-validity = {
 	    description = "python-validity service";
 	    runlevels = "2345";
 	    conditions = "service/open-fprintd/ready";
-	    command = "${localPackages.python-validity}/bin/python-validity";
+	    command = "${localPackages.python-validity}/bin/python-validity-dbus-service";
 	  };
     #systemd.packages = [ localPackages.python-validity ];
     #systemd.services.python3-validity.wantedBy = [ "multi-user.target" ];
