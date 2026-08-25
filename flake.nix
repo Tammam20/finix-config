@@ -12,6 +12,7 @@
       nixpkgs,
       finix,
       community-modules,
+      nix-cachyos-kernel,
     }:
     let
       pkgs = import nixpkgs {
