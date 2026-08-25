@@ -37,6 +37,7 @@ imports = with modules; [
 	nftables
 	wireplumber
 	sysklogd
+	fprintd
   ];
 
   # Use latest kernel.
