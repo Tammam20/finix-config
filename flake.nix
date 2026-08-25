@@ -36,6 +36,11 @@
           ./hardware-configuration.nix
           ./validity.nix
           community-modules.nixosModules.fastfetch
+          args: import ./validity.nix (
+                args // {
+                  localPackages = localPackages;
+                }
+              );
 
           { nixpkgs.pkgs = pkgs; }
         ];
