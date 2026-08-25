@@ -19,6 +19,9 @@
         system = "x86_64-linux";
 
         config.allowUnfree = true;
+        overlays = [
+                  nix-cachyos-kernel.overlays.pinned
+                ];
       };
       localPackages = import ./pkgs/default.nix { pkgs = pkgs; };
     in
