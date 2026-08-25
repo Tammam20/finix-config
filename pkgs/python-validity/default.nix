@@ -82,9 +82,9 @@ in
 
     postInstall = ''
       # this section has been adapted from this AUR package https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=python-validity
-
-      install -D -m 644 debian/python3-validity.service \
-        $out/lib/systemd/system/python3-validity.service
+	# we use finit here NOT systemd
+      #install -D -m 644 debian/python3-validity.service \
+      #  $out/lib/systemd/system/python3-validity.service
 
       install -D -m 644 debian/python3-validity.udev \
         $out/lib/udev/rules.d/60-python-validity.rules
