@@ -47,7 +47,6 @@ imports = [
 			        session required pam_unix.so # unix (order 10200)
 			        session required pam_limits.so conf=/etc/security/limits.conf debug # limits (order 10400) - needed for rtprio/realtim
 			      '';
-		}
 
 		login.text = lib.mkMerge ''
 					        # Account management.
@@ -66,7 +65,8 @@ imports = [
 					        session required pam_unix.so # unix (order 10200)
 					        session required pam_limits.so conf=/etc/security/limits.conf debug # limits (order 10400) - needed for rtprio/realtim
 					      '';
-				}
+					}
+				
 	];
 	
 	 services.polkit.extraConfig = lib.optionalString (config.services.seatd.group != [ ]) ''
