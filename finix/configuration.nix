@@ -64,6 +64,8 @@ imports = with modules; [
         "root"
         "@wheel"
       ];
+      substituters = [ "https://finix.cachix.org" ];
+	  trusted-public-keys = [ "finix.cachix.org-1:0ejikHDeCp0UErsduUUHcg9IJczY2/h2e5132Z/As/c=" ];
     };
   };
 
