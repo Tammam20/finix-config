@@ -10,6 +10,28 @@ imports = [
       pkgs.fprintd
     ];
 
+	security.pam.services = lib.mkMerge [
+		{
+			sudo.text = lib.mkForce ''
+			        # Account management.
+			        account required pam_unix.so # unix (order 10900)
+			
+			        # Authentication management.
+			        auth sufficient ${config.services.fprintd.package}/lib/security/pam_fprintd.so debug # fprintd (order 11400)
+			        auth sufficient pam_unix.so likeauth try_first_pass # unix (order 11500)
+			        auth required pam_deny.so # deny (order 12300)
+			
+			        # Password management.
+			        password sufficient pam_unix.so nullok yescrypt # unix (order 10200)
+			
+			        # Session management.
+			        session required pam_env.so conffile=/etc/security/pam_env.conf readenv=0 # env (order 10100)
+			        session required pam_unix.so # unix (order 10200)
+			        session required pam_limits.so conf=/etc/security/limits.conf debug # limits (order 10400) - needed for rtprio/realtime
+			      '';
+		}
+	];
+
 	providers.resumeAndSuspend.hooks = { 
 	python-validity.enable = true;
 	python-validity.action = "initctl restart python-validity";
