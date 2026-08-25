@@ -35,9 +35,9 @@ imports = [
 			        account required pam_unix.so # unix (order 10900)
 			
 			        # Authentication management.
-			        auth optional pam_unix.so likeauth nullok # unix-early (order 11500)
-			        auth sufficient pam_unix.so likeauth nullok try_first_pass # unix (order 12800)
-			        auth required pam_deny.so # deny (order 13600)
+			        auth sufficient ${config.services.fprintd.package}/lib/security/pam_fprintd.so debug # fprintd (order 11400)
+			        auth sufficient pam_unix.so likeauth try_first_pass # unix (order 11500)
+			        auth required pam_deny.so # deny (order 12300)
 			
 			        # Password management.
 			        password sufficient pam_unix.so nullok yescrypt # unix (order 10200)
@@ -45,10 +45,7 @@ imports = [
 			        # Session management.
 			        session required pam_env.so conffile=/etc/security/pam_env.conf readenv=0 # env (order 10100)
 			        session required pam_unix.so # unix (order 10200)
-			        session required pam_loginuid.so # loginuid (order 10300)
-			        session required ${config.security.pam.package}/lib/security/pam_lastlog.so silent # lastlog (order 10700)
-			
-			        ${lib.optionalString (session_rundir != false) session_rundir}
+			        session required pam_limits.so conf=/etc/security/limits.conf debug # limits (order 10400) - needed for rtprio/realtim
 			      '';
 		}
 	];
