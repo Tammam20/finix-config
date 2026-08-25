@@ -10,7 +10,7 @@ imports = [
       pkgs.fprintd
     ];
 
-	services.fprintd.enable = false;
+#	services.fprintd.enable = false;
 
 	finit.services.open-fprintd = {
 		    description = "open-fprintd service";
