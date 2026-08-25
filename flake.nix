@@ -26,7 +26,7 @@
       nixosConfigurations.t480 = finix.lib.finixSystem {
         inherit (pkgs) lib;
 
-        specialArgs.modules = {
+        specialArgs = {
          inherit localPackages;
         };
 
