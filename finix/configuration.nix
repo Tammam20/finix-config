@@ -379,7 +379,7 @@ users.groups.audio.gid = config.ids.gids.audio;
   ];
 
   # TODO: shouldn't this just be included by default?
-    services.mdevd.hotplugRules = lib.mkMerge [
+   /* services.mdevd.hotplugRules = lib.mkMerge [
       (lib.mkAfter ''
         SUBSYSTEM=input;.* root:input 660
         SUBSYSTEM=sound;.* root:audio 660
@@ -412,7 +412,7 @@ users.groups.audio.gid = config.ids.gids.audio;
   
         rfkill      root:${config.services.seatd.group} 660
       ''
-    ];
+    ];*/
   providers.privileges.rules = [
           {
             command = "/run/current-system/sw/bin/poweroff";
