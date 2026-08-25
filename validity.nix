@@ -12,9 +12,9 @@ imports = [
 
 #	services.fprintd.enable = false;
 
-	providers.resumeAndSuspend.hooks.python-validity.event.type = "resume";
-	providers.resumeAndSuspend.hooks.pyhton-valditiy.enable = true;
-	providers.resumeAndSuspend.hooks.python-validity.action = "initctl restart python-validity";
+	providers.resumeAndSuspend.hooks.event = "resume";
+	providers.resumeAndSuspend.hooks.enable = true;
+	providers.resumeAndSuspend.hooks.action = "initctl restart python-validity";
 	
 
 	finit.services.open-fprintd = {
