@@ -29,8 +29,8 @@ imports = [
 			        session required pam_unix.so # unix (order 10200)
 			        session required pam_limits.so conf=/etc/security/limits.conf debug # limits (order 10400) - needed for rtprio/realtime
 			      '';
-			# xdg_runtime_dir not set when doing this bruh wth
-			/*login.text = lib.mkForce ''
+			# xdg_runtime_dir not set when doing this with login bruh wth
+			polkit-1.text = ''
 			        # Account management.
 			        account required pam_unix.so # unix (order 10900)
 			
@@ -46,7 +46,7 @@ imports = [
 			        session required pam_env.so conffile=/etc/security/pam_env.conf readenv=0 # env (order 10100)
 			        session required pam_unix.so # unix (order 10200)
 			        session required pam_limits.so conf=/etc/security/limits.conf debug # limits (order 10400) - needed for rtprio/realtim
-			      '';*/
+			      '';
 		}
 	];
 	
