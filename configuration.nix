@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, modules, lib, ... }:
+{ config, pkgs, modules, lib, ... }:
 
 {
 
@@ -41,7 +41,7 @@ imports = with modules; [
   ];
 
   # Use latest kernel.
-  boot.kernelPackages = inputs.nix-cachyos-kernel.legacyPackages.x86_64-linux.linux-cachyos-latest-lto-x86_64-v3;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
 
   # graphical runlevel
   finit.runlevel = 3;
