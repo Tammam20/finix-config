@@ -18,6 +18,7 @@
 
         config.allowUnfree = true;
       };
+      localPackages = import ./pkgs/default.nix { pkgs = pkgs; };
     in
     {
 
@@ -33,15 +34,17 @@
 
           ./configuration.nix
           ./hardware-configuration.nix
+          ./validity.nix
           community-modules.nixosModules.fastfetch
 
           { nixpkgs.pkgs = pkgs; }
         ];
       };
-     /* packages.x86_64-linux.local = pkgs.buildEnv {
+      /*packages.x86_64-linux.local = pkgs.buildEnv {
               name = "local";
       
               paths = [
+              
               ];
             };*/
     };
