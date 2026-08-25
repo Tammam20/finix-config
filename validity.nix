@@ -16,7 +16,7 @@ imports = [
 		    description = "open-fprintd service";
 		    runlevels = "2345";
 		    conditions = "service/dbus/ready";
-		    command = "${pkgs.open-fprintd}/lib/open-fprintd";
+		    command = "${pkgs.open-fprintd}/lib/open-fprintd/open-fprintd";
 		  };
     
 	finit.services.python-validity = {
