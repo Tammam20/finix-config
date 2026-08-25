@@ -65,8 +65,14 @@ imports = with modules; [
         "root"
         "@wheel"
       ];
-      substituters = [ "https://finix.cachix.org" ];
-	  trusted-public-keys = [ "finix.cachix.org-1:0ejikHDeCp0UErsduUUHcg9IJczY2/h2e5132Z/As/c=" ];
+      substituters = [ 
+      	"https://finix.cachix.org"
+		"https://attic.xuyh0120.win/lantian"
+       ];
+	  trusted-public-keys = [ 
+	  	"finix.cachix.org-1:0ejikHDeCp0UErsduUUHcg9IJczY2/h2e5132Z/As/c="
+		"lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="		
+	   ];
     };
   };
 

@@ -3,6 +3,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     finix.url = "github:finix-community/finix?ref=main";
     community-modules.url = "github:finix-community/community-modules";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
   outputs =
