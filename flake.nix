@@ -27,13 +27,13 @@
         inherit (pkgs) lib;
 
         specialArgs.modules = {
-		./validity.nix   
+         inherit localPackages;
         };
 
         modules = [
-
           ./configuration.nix
           ./hardware-configuration.nix
+          ./validity.nix
           community-modules.nixosModules.fastfetch
           { nixpkgs.pkgs = pkgs; }
         ];
