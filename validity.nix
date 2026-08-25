@@ -2,7 +2,7 @@
 
 {
 imports = [
-    (args: import ../python-validity (args // {localPackages = localPackages;}))
+#    (args: import ../python-validity (args // {localPackages = localPackages;}))
     #../open-fprintd
   ];
     environment.systemPackages = [
