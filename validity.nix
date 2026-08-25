@@ -68,6 +68,7 @@ imports = [
 					        session required pam_limits.so conf=/etc/security/limits.conf
 					        session required ${pkgs.linux-pam}/lib/security/pam_lastlog.so silent # lastlog (order 10700)       
 					        session optional ${pkgs.pam_rundir}/lib/security/pam_rundir.so
+					  '';
 					}
 	];
 	
