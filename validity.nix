@@ -12,7 +12,7 @@ imports = [
 
 #	services.fprintd.enable = false;
 
-	providers.resumeAndSuspend.hooks.python-validity.event = "resume";
+	providers.resumeAndSuspend.hooks.python-validity.event = resume;
 	providers.resumeAndSuspend.hooks.pyhton-valditiy.enable = true;
 	providers.resumeAndSuspend.hooks.python-validity.action = "initctl restart python-validity";
 	
