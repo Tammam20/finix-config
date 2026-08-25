@@ -26,22 +26,15 @@
       nixosConfigurations.t480 = finix.lib.finixSystem {
         inherit (pkgs) lib;
 
-       /* specialArgs.modules = {
-          
-        };*/
+        specialArgs.modules = {
+		./validity.nix   
+        };
 
         modules = [
 
           ./configuration.nix
           ./hardware-configuration.nix
-          ./validity.nix
           community-modules.nixosModules.fastfetch
-          args: import ./validity.nix (
-                args // {
-                  localPackages = localPackages;
-                }
-              );
-
           { nixpkgs.pkgs = pkgs; }
         ];
       };
