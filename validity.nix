@@ -15,7 +15,7 @@ imports = [
 	finit.services.open-fprintd = {
 		    description = "open-fprintd service";
 		    runlevels = "2345";
-		    conditions = "service/syslogd/ready";
+		    conditions = "service/dbus/ready";
 		    command = "${pkgs.open-fprintd}/lib/open-fprintd";
 		  };
     
