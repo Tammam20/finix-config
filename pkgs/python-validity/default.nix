@@ -8,7 +8,7 @@
 in
   buildPythonPackage rec {
     pname = "python-validity";
-    version = "0.14";
+    version = "0.13";
 
     pyproject = true;
     build-system = [ python3Packages.setuptools ];
