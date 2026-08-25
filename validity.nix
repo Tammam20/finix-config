@@ -10,11 +10,11 @@ imports = [
       pkgs.fprintd
     ];
 
-#	services.fprintd.enable = false;
-
-	providers.resumeAndSuspend.hooks.event = "resume";
-	providers.resumeAndSuspend.hooks.python-validity.enable = true;
-	providers.resumeAndSuspend.hooks.python-validity.action = "initctl restart python-validity";
+	providers.resumeAndSuspend.hooks = { 
+	python-validity.enable = true;
+	python-validity.action = "initctl restart python-validity";
+	python-validity.event = "resume";
+	 };
 	
 
 	finit.services.open-fprintd = {
@@ -30,8 +30,6 @@ imports = [
 	    conditions = "service/open-fprintd/ready";
 	    command = "${localPackages.python-validity}/bin/python-validity-dbus-service";
 	  };
-    #systemd.packages = [ localPackages.python-validity ];
-    #systemd.services.python3-validity.wantedBy = [ "multi-user.target" ];
 
     # need to register the dbus configuration files of the package, otherwise we will get access errors
     services.dbus.packages = [ 
