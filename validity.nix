@@ -49,7 +49,23 @@ imports = [
 			      '';*/
 		}
 	];
+	
+	 services.polkit.extraConfig = lib.optionalString (cfg.extraGroups != [ ]) ''
+      polkit.addRule(function(action, subject) {
+        if (action.id.startsWith("net.reactivated.fprint.device.")) {
+          var groups = ${builtins.toJSON cfg.extraGroups};
 
+          if (groups.some(function(group) {
+            return subject.isInGroup(group);
+          })) {
+            return polkit.Result.YES;
+          }
+        }
+
+        return polkit.Result.NOT_HANDLED;
+      });
+    '';
+    
 	providers.resumeAndSuspend.hooks = { 
 	python-validity.enable = true;
 	python-validity.action = "initctl restart python-validity";
