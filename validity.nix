@@ -1,6 +1,10 @@
 { config, pkgs, modules, lib, ... }:
 
 {
+imports = [
+    (args: import ../python-validity (args // {localPackages = localPackages;}))
+    #../open-fprintd
+  ];
     environment.systemPackages = [
       localPackages.python-validity
       pkgs.fprintd
