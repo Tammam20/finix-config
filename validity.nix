@@ -12,7 +12,7 @@ imports = [
 
 	security.pam.services = lib.mkMerge [
 		{
-			sudo.text = lib.mkForce ''
+			sudo.text = ''
 			        # Account management.
 			        account required pam_unix.so # unix (order 10900)
 			
@@ -50,7 +50,7 @@ imports = [
 		}
 	];
 	
-	 services.polkit.extraConfig = lib.optionalString (cfg.extraGroups != [ ]) ''
+	 services.polkit.extraConfig = ''
       polkit.addRule(function(action, subject) {
         if (action.id.startsWith("net.reactivated.fprint.device.")) {
           var groups = ${builtins.toJSON cfg.extraGroups};
