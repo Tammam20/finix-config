@@ -20,8 +20,8 @@ imports = with modules; [
 	seahorse
 	zzz
 	limine
-	#tlp
-	power-profiles-daemon
+	tlp
+	#power-profiles-daemon
 	bash	
 	nano
 	sudo
@@ -155,10 +155,10 @@ users.groups.audio.gid = config.ids.gids.audio;
     dhcpcd.enable = true;
     thermald.enable = true;
     gvfs.enable = true;
-    power-profiles-daemon.enable = true;
+    /*power-profiles-daemon.enable = true;
     power-profiles-daemon.extraGroups =  [
     config.services.seatd.group
-    ];
+    ];*/
     earlyoom.enable =  true;
     earlyoom.extraArgs = [
           "-r"
@@ -177,7 +177,7 @@ users.groups.audio.gid = config.ids.gids.audio;
 	 ];
     iwd.enable = true;
     seatd.enable = true;
-    /*tlp.enable = true;
+    tlp.enable = true;
     tlp.settings = { 
             CPU_SCALING_GOVERNOR_ON_AC = "powersave";
             CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
@@ -216,7 +216,7 @@ users.groups.audio.gid = config.ids.gids.audio;
             NMI_WATCHDOG = 0;
             #START_CHARGE_THRESH_BAT0 = 75; 
             #STOP_CHARGE_THRESH_BAT0 = 80; 
-         };*/
+         };
     
     /*greetd = {
     enable = true;
