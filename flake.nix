@@ -35,6 +35,7 @@
 
         specialArgs = {
          inherit localPackages;
+         inherit nix;
         };
 
         modules = [
