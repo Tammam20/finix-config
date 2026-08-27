@@ -58,7 +58,7 @@ imports = with modules; [
 
   services.nix-daemon = {
     enable = true;
-    package = nix.packages.${pkgs.stdenv.system}.default;
+#    package = nix.packages.${pkgs.stdenv.system}.default;
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];

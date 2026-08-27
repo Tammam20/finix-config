@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nix.url = "github:DeterminateSystems/nix-src";
+    nix.url = "https://flakehub.com/f/DeterminateSystems/nix-src/*";
     finix.url = "github:finix-community/finix?ref=main";
     community-modules.url = "github:finix-community/community-modules";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
