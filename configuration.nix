@@ -58,6 +58,7 @@ imports = with modules; [
 
   services.nix-daemon = {
     enable = true;
+    package = nix-src.packages.${pkgs.stdenv.system}.default;
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
@@ -68,10 +69,12 @@ imports = with modules; [
       substituters = [ 
       	"https://finix.cachix.org"
 		"https://attic.xuyh0120.win/lantian"
+		"https://install.determinate.systems"
        ];
 	  trusted-public-keys = [ 
 	  	"finix.cachix.org-1:0ejikHDeCp0UErsduUUHcg9IJczY2/h2e5132Z/As/c="
-		"lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="		
+		"lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+		"cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
 	   ];
     };
   };
