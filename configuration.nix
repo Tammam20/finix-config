@@ -61,7 +61,9 @@ imports = with modules; [
     package = nix.packages.${pkgs.stdenv.system}.default;
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      eval-cores = 0;
+      lazy-trees = true;
+      experimental-features = [ "nix-command" "flakes" "parallel-eval" ];
       trusted-users = [
         "root"
         "@wheel"
