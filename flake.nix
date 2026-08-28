@@ -3,8 +3,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix.url = "https://flakehub.com/f/DeterminateSystems/nix-src/*";
     finix.url = "github:finix-community/finix?ref=main";
-    nix-index-database.url = "github:nix-community/nix-index-database";
-	nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     community-modules.url = "github:finix-community/community-modules";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
@@ -17,7 +15,6 @@
       community-modules,
       nix-cachyos-kernel,
       nix,
-      nix-index-database,
     }:
     let
       pkgs = import nixpkgs {
@@ -46,7 +43,6 @@
           ./hardware-configuration.nix
           ./validity.nix
           community-modules.nixosModules.fastfetch
-          nix-index-database.nixosModules.default
           { nixpkgs.pkgs = pkgs; }
         ];
       };
