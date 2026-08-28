@@ -281,8 +281,8 @@ users.groups.audio.gid = config.ids.gids.audio;
       # sets NIX_PATH env variable for ad hoc nix shells
       NIX_PATH.default = "nixpkgs=${pkgs.path}";
       
-      QT_QPA_PLATFORMTHEME = "gnome";
-      QT_STYLE_OVERRIDE = "adwaita-dark";
+      QT_QPA_PLATFORMTHEME.default = "gnome";
+      QT_STYLE_OVERRIDE.default = "adwaita-dark";
     };
 
 	# qt theme
