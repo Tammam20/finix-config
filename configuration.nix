@@ -280,13 +280,16 @@ users.groups.audio.gid = config.ids.gids.audio;
       LIBVA_DRIVER_NAME.default = "iHD";
       # sets NIX_PATH env variable for ad hoc nix shells
       NIX_PATH.default = "nixpkgs=${pkgs.path}";
+      
+      QT_QPA_PLATFORMTHEME = "gnome";
+      QT_STYLE_OVERRIDE = "adwaita-dark";
     };
 
 	# qt theme
-	environment.variables = {
+	/*environment.variables = {
 		QT_QPA_PLATFORMTHEME = "gnome";
 		QT_STYLE_OVERRIDE = "adwaita-dark";
-	};
+	};*/
 	
 
   fonts = {
