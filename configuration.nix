@@ -292,6 +292,9 @@ users.groups.audio.gid = config.ids.gids.audio;
 	environment.extraSetup =''
 			ln -sf ${pkgs.bash-completion}/share/bash-completion $out/share/bash-completion
 		  '';
+
+	environment.pathsToLink = [ "/share/man" ];
+	environment.variables.MANPATH = "/run/current-system/sw/share/man";
 	
 
   fonts = {
@@ -395,6 +398,7 @@ users.groups.audio.gid = config.ids.gids.audio;
   	lshw
   	ollama
   	bash-completion
+  	man
    	#inputs.noctalia.packages.${pkgs.stdenv.system}.default
    	#noctalia
   ];
