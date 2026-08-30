@@ -395,6 +395,7 @@ users.groups.audio.gid = config.ids.gids.audio;
  	fd
   	lshw
   	ollama
+  	bash-completion
    	#inputs.noctalia.packages.${pkgs.stdenv.system}.default
    	#noctalia
   ];
