@@ -16,7 +16,7 @@ imports = with modules; [
     #hyprland
     thermald
 	#fwupd
-	upower
+	#upower
 	brightnessctl
 	seahorse
 	zzz
@@ -175,7 +175,7 @@ users.groups.audio.gid = config.ids.gids.audio;
     bluetooth.settings.Policy.AutoEnable = false;
     fstrim.enable = true;
     fstrim.interval = "daily";
-    upower.enable = true;
+    #upower.enable = true;
     #fwupd.enable = true;
 	nftables.enable = true;
 	rtkit.enable =  true;
