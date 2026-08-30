@@ -64,6 +64,7 @@ imports = with modules; [
       auto-optimise-store = true;
       eval-cores = 0;
       lazy-trees = true;
+      flake-registry = "https://channels.nixos.org/flake-registry.json";
       experimental-features = [ "nix-command" "flakes" "parallel-eval" ];
       trusted-users = [
         "root"
