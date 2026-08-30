@@ -117,6 +117,7 @@ imports = with modules; [
 	nano.enable = true;
 	nano.defaultEditor = false;
     bash.enable = true;
+    zsh.enable = true;
     sway.enable = true;
     #hyprland.enable = true;
     pmount.enable = true;
@@ -259,6 +260,7 @@ users.groups.audio.gid = config.ids.gids.audio;
   users.users.tammam = {
     isNormalUser = true;
     description = "Tammam Faris";
+    shell = pkgs.zsh;
     extraGroups = [ 
      "wheel" 
      "video" 
