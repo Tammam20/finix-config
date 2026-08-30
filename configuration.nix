@@ -13,7 +13,7 @@ imports = with modules; [
     pmount
     seahorse
     sway
-    hyprland
+    #hyprland
     thermald
 	#fwupd
 	upower
@@ -117,7 +117,7 @@ imports = with modules; [
 	nano.defaultEditor = false;
     bash.enable = true;
     sway.enable = true;
-    hyprland.enable = true;
+    #hyprland.enable = true;
     pmount.enable = true;
     seahorse.enable = true;
     gnome-keyring.enable = true;
@@ -393,8 +393,7 @@ users.groups.audio.gid = config.ids.gids.audio;
   	ripgrep
  	fd
   	lshw
-  	inputs.caelestia-shell.packages.${pkgs.stdenv.system}.with-cli
-  	#noctalia-shell
+   	inputs.noctalia.packages.${pkgs.stdenv.system}.default
   ];
 
   # TODO: shouldn't this just be included by default?
