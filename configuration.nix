@@ -288,11 +288,13 @@ users.groups.audio.gid = config.ids.gids.audio;
       QT_STYLE_OVERRIDE.default = "adwaita-dark";
     };
 
-	# qt theme
-	/*environment.variables = {
-		QT_QPA_PLATFORMTHEME = "gnome";
-		QT_STYLE_OVERRIDE = "adwaita-dark";
-	};*/
+	# shell fix
+	environment.extraSetup = {
+		''
+		    mkdir -p /run/current-system/sw/share/bash-completion
+		    ln -sf ${pkgs.bash-completion}/share/bash-completion/bash_completion /run/current-system/sw/share/bash-completion/bash_completion
+		  ''
+	};
 	
 
   fonts = {
