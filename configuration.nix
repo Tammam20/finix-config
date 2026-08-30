@@ -1,4 +1,4 @@
-{ config, pkgs, nix,  modules, lib, ... }:
+{ config, pkgs, inputs,  modules, lib, ... }:
 
 {
 
@@ -58,7 +58,7 @@ imports = with modules; [
 
   services.nix-daemon = {
     enable = true;
-    package = nix.packages.${pkgs.stdenv.system}.default;
+    package = inputs.nix.packages.${pkgs.stdenv.system}.default;
     settings = {
       auto-optimise-store = true;
       eval-cores = 0;

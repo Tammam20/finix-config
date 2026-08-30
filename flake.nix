@@ -5,16 +5,21 @@
     finix.url = "github:finix-community/finix?ref=main";
     community-modules.url = "github:finix-community/community-modules";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    caelestia-shell = {
+          url = "github:caelestia-dots/shell";
+          inputs.nixpkgs.follows = "nixpkgs";
+        };
   };
 
   outputs =
-    {
+    inputs@{
       self,
       nixpkgs,
       finix,
       community-modules,
       nix-cachyos-kernel,
       nix,
+      caelestia-shell,
     }:
     let
       pkgs = import nixpkgs {
@@ -35,7 +40,7 @@
 
         specialArgs = {
          inherit localPackages;
-         inherit nix;
+         inherit inputs;
         };
 
         modules = [
