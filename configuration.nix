@@ -393,6 +393,7 @@ users.groups.audio.gid = config.ids.gids.audio;
   	ripgrep
  	fd
   	lshw
+  	ollama
    	#inputs.noctalia.packages.${pkgs.stdenv.system}.default
    	#noctalia
   ];
