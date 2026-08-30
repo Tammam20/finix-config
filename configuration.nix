@@ -391,6 +391,7 @@ users.groups.audio.gid = config.ids.gids.audio;
   	ripgrep
  	fd
   	lshw
+  	inputs.caelestia-shell.packages.${pkgs.stdenv.system}.with-cli
   	#noctalia-shell
   ];
 
