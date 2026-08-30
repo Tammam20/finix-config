@@ -291,6 +291,7 @@ users.groups.audio.gid = config.ids.gids.audio;
 	# shell fix
 	environment.extraSetup =''
 			ln -sf ${pkgs.bash-completion}/share/bash-completion $out/share/bash-completion
+			ln -sf ${pkgs.blesh}/share/blesh $out/share/blesh
 		  '';
 
 	environment.pathsToLink = [ "/share/man" ];
