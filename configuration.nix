@@ -393,7 +393,8 @@ users.groups.audio.gid = config.ids.gids.audio;
   	ripgrep
  	fd
   	lshw
-   	inputs.noctalia.packages.${pkgs.stdenv.system}.default
+   	#inputs.noctalia.packages.${pkgs.stdenv.system}.default
+   	noctalia
   ];
 
   # TODO: shouldn't this just be included by default?

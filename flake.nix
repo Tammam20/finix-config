@@ -5,10 +5,10 @@
     finix.url = "github:finix-community/finix?ref=main";
     community-modules.url = "github:finix-community/community-modules";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-	noctalia = {
+	/*noctalia = {
 	      url = "github:noctalia-dev/noctalia";
 	      inputs.nixpkgs.follows = "nixpkgs"; # this line is optional, prevents downloading two versions of nixpkgs but disables cache
-	    };
+	    };*/
   };
 
   outputs =
@@ -19,7 +19,7 @@
       community-modules,
       nix-cachyos-kernel,
       nix,
-      noctalia,
+      #noctalia,
     }:
     let
       pkgs = import nixpkgs {
