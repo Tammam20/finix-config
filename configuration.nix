@@ -290,8 +290,9 @@ users.groups.audio.gid = config.ids.gids.audio;
 
 	# shell fix
 	environment.extraSetup =''
-		    mkdir -p /run/current-system/sw/share/bash-completion
-		    ln -sf ${pkgs.bash-completion}/share/bash-completion/bash_completion /run/current-system/sw/share/bash-completion/bash_completion
+		    mkdir -p $out/share/bash-completion
+		        ln -sf ${pkgs.bash-completion}/share/bash-completion/bash_completion \
+		          $out/share/bash-completion/bash_completion
 		  '';
 	
 
