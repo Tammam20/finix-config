@@ -15,6 +15,7 @@ imports = with modules; [
     sway
     #hyprland
     thermald
+    zsh
 	#fwupd
 	#upower
 	brightnessctl
