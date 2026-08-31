@@ -11,7 +11,7 @@ imports = with modules; [
     pmount
     seahorse
     sway
-    #hyprland
+    hyprland
     thermald
 	#fwupd
 	#upower
