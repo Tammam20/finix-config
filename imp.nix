@@ -1,0 +1,41 @@
+{ config, pkgs, inputs,  modules, lib, ... }:
+
+{
+imports = with modules; [
+    fstrim
+    bluetooth
+    gnome-keyring
+    gvfs
+    micro
+	getty
+    pmount
+    seahorse
+    sway
+    #hyprland
+    thermald
+	#fwupd
+	#upower
+	brightnessctl
+	seahorse
+	zzz
+	limine
+	tlp
+	#power-profiles-daemon
+	bash	
+	nano
+	sudo
+	dhcpcd
+	chronyd
+	earlyoom
+	iwd	
+	nix-daemon
+	polkit
+	rtkit
+	pipewire
+	limine
+	nftables
+	wireplumber
+	sysklogd
+	fprintd
+  ];
+}

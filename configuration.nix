@@ -2,45 +2,6 @@
 
 {
 
-
-imports = with modules; [
-    fstrim
-    bluetooth
-    gnome-keyring
-    gvfs
-    micro
-	getty
-    pmount
-    seahorse
-    sway
-    #hyprland
-    thermald
-	#fwupd
-	#upower
-	brightnessctl
-	seahorse
-	zzz
-	limine
-	tlp
-	#power-profiles-daemon
-	bash	
-	nano
-	sudo
-	dhcpcd
-	chronyd
-	earlyoom
-	iwd	
-	nix-daemon
-	polkit
-	rtkit
-	pipewire
-	limine
-	nftables
-	wireplumber
-	sysklogd
-	fprintd
-  ];
-
   # Use latest kernel.
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-x86_64-v3;
 
@@ -288,10 +249,9 @@ users.groups.audio.gid = config.ids.gids.audio;
       QT_STYLE_OVERRIDE.default = "adwaita-dark";
     };
 
-	# shell fix
+	# shell fix # ln -sf ${pkgs.blesh}/share/blesh $out/share/blesh
 	environment.extraSetup =''
 			ln -sf ${pkgs.bash-completion}/share/bash-completion $out/share/bash-completion
-			ln -sf ${pkgs.blesh}/share/blesh $out/share/blesh
 		  '';
 
 	environment.pathsToLink = [ "/share/man" ];
@@ -400,7 +360,7 @@ users.groups.audio.gid = config.ids.gids.audio;
   	ollama
   	bash-completion
   	man
-  	blesh
+  	#blesh
    	#inputs.noctalia.packages.${pkgs.stdenv.system}.default
    	#noctalia
   ];
