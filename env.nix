@@ -75,6 +75,7 @@
 	  	  pkgs.ollama
 	  	  pkgs.bash-completion
 	  	  pkgs.man
+	  	  pkgs.matugen
   		  #pkgs.blesh
    		  #pkgs.inputs.noctalia.packages.${pkgs.stdenv.system}.default
    		  inputs.caelestia-shell.packages.${pkgs.stdenv.system}.with-cli
