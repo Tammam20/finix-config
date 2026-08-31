@@ -5,8 +5,8 @@
     finix.url = "github:finix-community/finix?ref=main";
     community-modules.url = "github:finix-community/community-modules";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-    caelestia-shell = {
-          url = "github:caelestia-dots/shell";
+    serpantinum = { 
+          url = "github:ilyamiro/serpantinum";
           inputs.nixpkgs.follows = "nixpkgs";
         };
   };
@@ -19,7 +19,7 @@
       community-modules,
       nix-cachyos-kernel,
       nix,
-      caelestia-shell,
+      serpantinum,
     }:
     let
       pkgs = import nixpkgs {
