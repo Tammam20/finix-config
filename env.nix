@@ -77,6 +77,7 @@
 	  	  pkgs.man
   		  #pkgs.blesh
    		  #pkgs.inputs.noctalia.packages.${pkgs.stdenv.system}.default
+   		  pkgs.inputs.caelestia-shell.packages.${pkgs.stdenv.system}.with-cli
    		  #pkgs.noctalia
 	    ];
 

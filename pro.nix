@@ -33,7 +33,7 @@
 			nano.defaultEditor = false;
 		    bash.enable = true;
 		    sway.enable = true;
-		    #hyprland.enable = true;
+		    hyprland.enable = true;
 		    pmount.enable = true;
 		    seahorse.enable = true;
 		    gnome-keyring.enable = true;
