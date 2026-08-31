@@ -25,4 +25,12 @@
   finit.services.nix-daemon = {
     environment.CURL_CA_BUNDLE = config.security.pki.caBundle;
   };
+
+   # libvirt
+   /* finit.services.libvirtd = {
+          description = "libvirt virtualisation daemon";
+          runlevels   = "2345";
+          conditions  = [ "service/syslogd/ready" ];
+          command     = "${pkgs.libvirt}/bin/libvirtd";
+        };*/
 }
