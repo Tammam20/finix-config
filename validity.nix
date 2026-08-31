@@ -85,9 +85,6 @@
 	python-validity.action = "initctl restart python-validity";
 	python-validity.event = "resume";
 	 };
-	
-
-	
 
     # need to register the dbus configuration files of the package, otherwise we will get access errors
     services.dbus.packages = [ 

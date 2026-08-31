@@ -39,9 +39,17 @@
         };
 
         modules = [
-          ./configuration.nix
           ./hardware-configuration.nix
           ./validity.nix
+          ./boo.nix
+		  ./env.nix
+		  ./ext.nix
+          ./fin.nix
+          ./imp.nix
+          ./pro.nix
+          ./ser.nix
+          ./use.nix
+          ./xdg.nix
           community-modules.nixosModules.fastfetch
           { nixpkgs.pkgs = pkgs; }
         ];
