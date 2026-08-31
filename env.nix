@@ -48,8 +48,8 @@
 	      pkgs.btop
 	      #pkgs.atop
 		  pkgs.fastfetch
-	      lm_sensors
-	      dconf-editor
+	      pkgs.lm_sensors
+	      pkgs.dconf-editor
 	      /*pkgs.virt-manager
 		  pkgs.qemu
 	      pkgs.virt-viewer
