@@ -56,27 +56,27 @@
 	      pkgs.spice-gtk
 	      pkgs.virtiofsd*/
 		  pkgs.file-roller
-  		  shellcheck
-  		  powertop
-  		  s-tui
-	  	  multimarkdown
-	  	  qbittorrent
-	  	  nixfmt
-	  	  nil
-	  	  emacs
-	  	  tldr
-	  	  pciutils
-	 	  usbutils
-	 	  coreutils
-	  	  clang
-	  	  ripgrep
-	 	  fd
-	  	  lshw
-	  	  ollama
-	  	  bash-completion
-	  	  man
-  		  #blesh
-   		  #inputs.noctalia.packages.${pkgs.stdenv.system}.default
-   		  #noctalia
+  		  pkgs.shellcheck
+  		  pkgs.powertop
+  		  pkgs.s-tui
+	  	  pkgs.multimarkdown
+	  	  pkgs.qbittorrent
+	  	  pkgs.nixfmt
+	  	  pkgs.nil
+	  	  pkgs.emacs
+	  	  pkgs.tldr
+	  	  pkgs.pciutils
+	 	  pkgs.usbutils
+	 	  pkgs.coreutils
+	  	  pkgs.clang
+	  	  pkgs.ripgrep
+	 	  pkgs.fd
+	  	  pkgs.lshw
+	  	  pkgs.ollama
+	  	  pkgs.bash-completion
+	  	  pkgs.man
+  		  #pkgs.blesh
+   		  #pkgs.inputs.noctalia.packages.${pkgs.stdenv.system}.default
+   		  #pkgs.noctalia
 	    ];
 }
