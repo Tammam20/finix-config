@@ -29,5 +29,5 @@
     interface_help_hidden = false;
      };
   };  
-}
+};
 }

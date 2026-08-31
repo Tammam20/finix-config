@@ -99,4 +99,112 @@
 };
 };*/
  };
+
+	services.nix-daemon = {
+	  enable = true;
+	  package = inputs.nix.packages.${pkgs.stdenv.system}.default;
+	  settings = {
+	    auto-optimise-store = true;
+	    eval-cores = 0;
+	    lazy-trees = true;
+	    flake-registry = "https://channels.nixos.org/flake-registry.json";
+	    experimental-features = [ "nix-command" "flakes" "parallel-eval" ];
+	    trusted-users = [
+	      "root"
+	      "@wheel"
+	    ];
+	    substituters = [ 
+	    	"https://finix.cachix.org"
+		"https://attic.xuyh0120.win/lantian"
+		"https://install.determinate.systems"
+	     ];
+	  trusted-public-keys = [ 
+	  	"finix.cachix.org-1:0ejikHDeCp0UErsduUUHcg9IJczY2/h2e5132Z/As/c="
+		"lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+		"cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
+	   ];
+	  };
+	};
+
+	# TODO: shouldn't this just be included by default?
+	 /* services.mdevd.hotplugRules = lib.mkMerge [
+	    (lib.mkAfter ''
+	      SUBSYSTEM=input;.* root:input 660
+	      SUBSYSTEM=sound;.* root:audio 660
+	    '')
+	
+	    ''
+	      grsec       root:root 660
+	      kmem        root:root 640
+	      mem         root:root 640
+	      port        root:root 640
+	      console     root:tty 600 @chmod 600 $MDEV
+	      card[0-9]   root:video 660 =dri/
+	
+	      # alsa sound devices and audio stuff
+	      pcm.*       root:audio 0660 =snd/
+	      control.*   root:audio 0660 =snd/
+	      midi.*      root:audio 0660 =snd/
+	      seq         root:audio 0660 =snd/
+	      timer       root:audio 0660 =snd/
+	
+	      adsp        root:audio 0660 >sound/
+	      audio       root:audio 0660 >sound/
+	      dsp         root:audio 0660 >sound/
+	      mixer       root:audio 0660 >sound/
+	      sequencer.* root:audio 0660 >sound/
+	
+	      event[0-9]+ root:input 660 =input/
+	      mice        root:input 660 =input/
+	      mouse[0-9]+ root:input 660 =input/
+	
+	      rfkill      root:${config.services.seatd.group} 660
+	    ''
+	  ];*/
+
+	  
+	   	# https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes#Simple_IP/IPv6_Firewall
+	   	services.nftables.configFile = pkgs.writeText "nftables.conf" ''
+	   	      flush ruleset
+	   	
+	   	      table firewall {
+	   	        chain incoming {
+	   	          type filter hook input priority 0; policy drop;
+	   	
+	   	          # established/related connections
+	   	          ct state established,related accept
+	   	
+	   	          # loopback interface
+	   	          iifname lo accept
+	   	
+	   	          # icmp
+	   	          icmp type echo-request accept
+	   	
+	   	          # open tcp ports: sshd (22)
+	   	          tcp dport { 22 } accept
+	   	        }
+	   	      }
+	   	
+	   	      table ip6 firewall {
+	   	        chain incoming {
+	   	          type filter hook input priority 0; policy drop;
+	   	
+	   	          # established/related connections
+	   	          ct state established,related accept
+	   	
+	   	          # invalid connections
+	   	          ct state invalid drop
+	   	
+	   	          # loopback interface
+	   	          iifname lo accept
+	   	
+	   	          # icmp
+	   	          # routers may also want: mld-listener-query, nd-router-solicit
+	   	          icmpv6 type { echo-request, nd-neighbor-solicit } accept
+	   	
+	   	          # open tcp ports: sshd (22)
+	   	          tcp dport { 22 } accept
+	   	        }
+	   	      }
+	   	    '';
 }
