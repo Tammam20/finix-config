@@ -75,7 +75,7 @@
 	  	  pkgs.ollama
 	  	  pkgs.bash-completion
 	  	  pkgs.man
-	  	  pkgs.matugen
+	  	  #pkgs.matugen
   		  #pkgs.blesh
    		  #pkgs.inputs.noctalia.packages.${pkgs.stdenv.system}.default
    		  #inputs.serpantinum.packages.${pkgs.stdenv.system}.default
