@@ -263,45 +263,7 @@
         "finix": "finix",
         "nix": "nix",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
-        "nixpkgs": "nixpkgs_3",
-        "serpantinum": "serpantinum"
-      }
-    },
-    "serpantinum": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "serpantinum-wallpapers": "serpantinum-wallpapers"
-      },
-      "locked": {
-        "lastModified": 1788201697,
-        "narHash": "sha256-eCUsVCFfFFvC2lvDwa4GDTjhTY8DmirJubR1c6o+fCQ=",
-        "owner": "ilyamiro",
-        "repo": "serpantinum",
-        "rev": "22c04962d4bac8168333db49035442fb26c60d95",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ilyamiro",
-        "repo": "serpantinum",
-        "type": "github"
-      }
-    },
-    "serpantinum-wallpapers": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1787675697,
-        "narHash": "sha256-ADvKHmQDsX50opqeiyEAB3uxUTjuCyDym0pGQCy7Sws=",
-        "owner": "ilyamiro",
-        "repo": "shell-wallpapers",
-        "rev": "1cb526443872fbf283a3f8305c3aa647545c02e4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ilyamiro",
-        "repo": "shell-wallpapers",
-        "type": "github"
+        "nixpkgs": "nixpkgs_3"
       }
     }
   },
