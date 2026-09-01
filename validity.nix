@@ -21,7 +21,6 @@
 			        session required pam_unix.so # unix (order 10200)
 			        session required pam_limits.so conf=/etc/security/limits.conf debug # limits (order 10400) - needed for rtprio/realtime
 			      '';
-			# xdg_runtime_dir not set when doing this with login bruh wth
 			polkit-1.text = ''
 			        # Account management.
 			        account required pam_unix.so # unix (order 10900)
