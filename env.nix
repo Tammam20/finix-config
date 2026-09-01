@@ -78,7 +78,7 @@
 	  	  pkgs.matugen
   		  #pkgs.blesh
    		  #pkgs.inputs.noctalia.packages.${pkgs.stdenv.system}.default
-   		  inputs.serpantinum.packages.${pkgs.stdenv.system}.default
+   		  #inputs.serpantinum.packages.${pkgs.stdenv.system}.default
    		  #pkgs.noctalia
 	    ];
 
