@@ -5,10 +5,12 @@
     finix.url = "github:finix-community/finix?ref=main";
     community-modules.url = "github:finix-community/community-modules";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-   /* serpantinum = { 
+    /*
+      serpantinum = {
           url = "github:ilyamiro/serpantinum";
           inputs.nixpkgs.follows = "nixpkgs";
-        };*/
+        };
+    */
   };
 
   outputs =
@@ -27,8 +29,8 @@
 
         config.allowUnfree = true;
         overlays = [
-                  nix-cachyos-kernel.overlays.pinned
-                ];
+          nix-cachyos-kernel.overlays.pinned
+        ];
       };
       localPackages = import ./pkgs/default.nix { pkgs = pkgs; };
     in
@@ -39,16 +41,16 @@
         inherit (pkgs) lib;
 
         specialArgs = {
-         inherit localPackages;
-         inherit inputs;
+          inherit localPackages;
+          inherit inputs;
         };
 
         modules = [
           ./hardware-configuration.nix
           ./validity.nix
           ./boo.nix
-		  ./env.nix
-		  ./ext.nix
+          ./env.nix
+          ./ext.nix
           ./fin.nix
           ./imp.nix
           ./pro.nix
@@ -59,12 +61,14 @@
           { nixpkgs.pkgs = pkgs; }
         ];
       };
-      /*packages.x86_64-linux.local = pkgs.buildEnv {
+      /*
+        packages.x86_64-linux.local = pkgs.buildEnv {
               name = "local";
-      
+
               paths = [
-              
+
               ];
-            };*/
+            };
+      */
     };
 }
