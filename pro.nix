@@ -40,7 +40,8 @@
     nano.defaultEditor = false;
     bash.enable = true;
     sway.enable = true;
-    hyprland.enable = true;
+    sway.package = pkgs.swayfx;
+    #hyprland.enable = true;
     pmount.enable = true;
     seahorse.enable = true;
     gnome-keyring.enable = true;
