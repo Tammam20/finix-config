@@ -22,9 +22,9 @@
       #pkgs.tumbler
     ];
 
-    #mdevd.enable = true;
+    mdevd.enable = true;
     # required for graphical environments
-    #mdevd.nlgroups = 4;
+    mdevd.nlgroups = 4;
     gardendevd.enable = true;
 
     chrony.enable = true;
@@ -142,7 +142,7 @@
   };
 
   # TODO: shouldn't this just be included by default?
-  /*
+  
     services.mdevd.hotplugRules = lib.mkMerge [
     	    (lib.mkAfter ''
     	      SUBSYSTEM=input;.* root:input 660
@@ -177,7 +177,7 @@
     	      rfkill      root:${config.services.seatd.group} 660
     	    ''
     	  ];
-  */
+  
 
   # https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes#Simple_IP/IPv6_Firewall
   services.nftables.configFile = pkgs.writeText "nftables.conf" ''
