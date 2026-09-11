@@ -120,8 +120,6 @@
       lazy-trees = true;
       flake-registry = "https://channels.nixos.org/flake-registry.json";
       experimental-features = [
-        "nix-command"
-        "flakes"
         "parallel-eval"
       ];
       trusted-users = [
