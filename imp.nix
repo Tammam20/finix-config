@@ -18,7 +18,7 @@
     pmount
     seahorse
     sway
-    hyprland
+    #hyprland
     thermald
     #fwupd
     #upower
