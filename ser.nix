@@ -25,7 +25,7 @@
     mdevd.enable = true;
     # required for graphical environments
     mdevd.nlgroups = 4;
-    gardendevd.enable = true;
+    #gardendevd.enable = true;
 
     chrony.enable = true;
     getty.package = pkgs.util-linux // {
