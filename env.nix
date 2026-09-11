@@ -45,7 +45,7 @@
     pkgs.playerctl
     pkgs.papirus-icon-theme
     pkgs.gnome-themes-extra
-    pkgs.lxqt.lxqt-policykit
+#    pkgs.lxqt.lxqt-policykit
     pkgs.wl-clip-persist
     pkgs.waybar
     pkgs.wev
