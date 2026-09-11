@@ -40,7 +40,7 @@
     nano.defaultEditor = false;
     bash.enable = true;
     sway.enable = true;
-    sway.package = pkgs.swayfx;
+    #sway.package = pkgs.swayfx;
     #hyprland.enable = true;
     pmount.enable = true;
     seahorse.enable = true;
