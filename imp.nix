@@ -26,8 +26,8 @@
     seahorse
     zzz
     limine
-    tlp
-    #power-profiles-daemon
+    #tlp
+    power-profiles-daemon
     bash
     nano
     sudo
