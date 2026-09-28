@@ -84,6 +84,8 @@
     pkgs.ollama
     pkgs.bash-completion
     pkgs.man
+    pkgs.lutris
+    pkgs.protonup-qt
     #pkgs.matugen
     #pkgs.zsh
     pkgs.blesh
