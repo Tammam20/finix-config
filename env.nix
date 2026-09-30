@@ -86,6 +86,8 @@
     pkgs.man
     pkgs.lutris
     pkgs.protonup-qt
+    pkgs.steam
+    pkgs.steam-run
     #pkgs.matugen
     #pkgs.zsh
     pkgs.blesh
