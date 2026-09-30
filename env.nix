@@ -89,6 +89,7 @@
     pkgs.steam
     pkgs.steam-run
     pkgs.rvgl-launcher
+    pkgs.localsend
     #pkgs.matugen
     #pkgs.zsh
     pkgs.blesh

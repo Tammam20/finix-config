@@ -194,8 +194,10 @@
     	   	          # icmp
     	   	          icmp type echo-request accept
     	   	
-    	   	          # open tcp ports: sshd (22)
+    	   	          # open tcp ports: sshd (22) and localsend (53317)
     	   	          tcp dport { 22 } accept
+    	   	          tcp dport { 53317 } accept
+    	   	          udp dport { 53317 } accept
     	   	        }
     	   	      }
     	   	
@@ -216,8 +218,10 @@
     	   	          # routers may also want: mld-listener-query, nd-router-solicit
     	   	          icmpv6 type { echo-request, nd-neighbor-solicit } accept
     	   	
-    	   	          # open tcp ports: sshd (22)
+    	   	          # open tcp ports: sshd (22) and localsend (53317)
     	   	          tcp dport { 22 } accept
+    	   	          tcp dport { 53317 } accept
+    	   	          udp dport { 53317 } accept
     	   	        }
     	   	      }
     	   	    '';
