@@ -115,6 +115,7 @@
     enable = true;
     package = inputs.nix.packages.${pkgs.stdenv.system}.default;
     settings = {
+      allowUnfree = true;
       auto-optimise-store = true;
       eval-cores = 0;
       lazy-trees = true;
