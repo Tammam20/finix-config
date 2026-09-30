@@ -88,6 +88,7 @@
     pkgs.protonup-qt
     pkgs.steam
     pkgs.steam-run
+    pkgs.rvgl-launcher
     #pkgs.matugen
     #pkgs.zsh
     pkgs.blesh
