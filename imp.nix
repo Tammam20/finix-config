@@ -44,6 +44,6 @@
     wireplumber
     sysklogd
     fprintd
-    flatpak
+    #flatpak
   ];
 }
