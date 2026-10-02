@@ -58,6 +58,10 @@
     ];
     iwd.enable = true;
     seatd.enable = true;
+
+	flatpak.enable = true;
+	flatpak.extraGroups = [ config.services.seatd.group ];
+    
     /*tlp.enable = true;
     tlp.settings = {
       CPU_SCALING_GOVERNOR_ON_AC = "powersave";
