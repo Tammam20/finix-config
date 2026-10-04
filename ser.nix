@@ -176,5 +176,5 @@
     	  ];
 
    providers.firewall.allowedTCPPorts = [ 22 ];
-
+   providers.scheduler.backend = "fcron";
   }
