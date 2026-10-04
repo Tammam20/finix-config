@@ -176,54 +176,7 @@
     	      rfkill      root:${config.services.seatd.group} 660
     	    ''
     	  ];
-  
 
-  # https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes#Simple_IP/IPv6_Firewall
-  services.nftables.configFile = pkgs.writeText "nftables.conf" ''
-    	   	      flush ruleset
-    	   	
-    	   	      table firewall {
-    	   	        chain incoming {
-    	   	          type filter hook input priority 0; policy drop;
-    	   	
-    	   	          # established/related connections
-    	   	          ct state established,related accept
-    	   	
-    	   	          # loopback interface
-    	   	          iifname lo accept
-    	   	
-    	   	          # icmp
-    	   	          icmp type echo-request accept
-    	   	
-    	   	          # open tcp ports: sshd (22) and localsend (53317)
-    	   	          tcp dport { 22 } accept
-    	   	          tcp dport { 53317 } accept
-    	   	          udp dport { 53317 } accept
-    	   	        }
-    	   	      }
-    	   	
-    	   	      table ip6 firewall {
-    	   	        chain incoming {
-    	   	          type filter hook input priority 0; policy drop;
-    	   	
-    	   	          # established/related connections
-    	   	          ct state established,related accept
-    	   	
-    	   	          # invalid connections
-    	   	          ct state invalid drop
-    	   	
-    	   	          # loopback interface
-    	   	          iifname lo accept
-    	   	
-    	   	          # icmp
-    	   	          # routers may also want: mld-listener-query, nd-router-solicit
-    	   	          icmpv6 type { echo-request, nd-neighbor-solicit } accept
-    	   	
-    	   	          # open tcp ports: sshd (22) and localsend (53317)
-    	   	          tcp dport { 22 } accept
-    	   	          tcp dport { 53317 } accept
-    	   	          udp dport { 53317 } accept
-    	   	        }
-    	   	      }
-    	   	    '';
-}
+   providers.firewall.allowedTCPPorts = [ 22 ];
+
+  }
