@@ -28,6 +28,7 @@
     #gardendevd.enable = true;
 
     chrony.enable = true;
+    fcron.enable = true;
     getty.enable = true;
     dhcpcd.enable = true;
     thermald.enable = true;
@@ -176,5 +177,4 @@
     	  ];
 
    providers.firewall.allowedTCPPorts = [ 22 ];
-   providers.scheduler.backend = fcron;
   }
