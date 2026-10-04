@@ -9,7 +9,7 @@ let
 in
 buildPythonPackage rec {
   pname = "python-validity";
-  version = "0.13";
+  version = "0.14";
 
   pyproject = true;
   build-system = [ python3Packages.setuptools ];
