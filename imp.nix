@@ -10,6 +10,7 @@
 {
   imports = with modules; [
     fstrim
+    fcron
     bluetooth
     gnome-keyring
     gvfs
