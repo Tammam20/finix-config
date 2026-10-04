@@ -4,7 +4,7 @@
     nix.url = "https://flakehub.com/f/DeterminateSystems/nix-src/*";
     finix.url = "github:finix-community/finix?ref=main";
     community-modules.url = "github:finix-community/community-modules";
-    nix-cachyos-kernel.url = "https://git.oss.uzinfocom.uz/mirrors/nix-cachyos-kernel/release";
+    nix-cachyos-kernel.url = "https://git.oss.uzinfocom.uz/mirrors/nix-cachyos-kernel/src/branch/release";
     /*
       serpantinum = {
           url = "github:ilyamiro/serpantinum";
