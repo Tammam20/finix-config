@@ -28,9 +28,7 @@
     #gardendevd.enable = true;
 
     chrony.enable = true;
-    getty.package = pkgs.util-linux // {
-      meta.mainProgram = "agetty";
-    };
+    getty.enable = true;
     dhcpcd.enable = true;
     thermald.enable = true;
     gvfs.enable = true;
