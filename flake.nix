@@ -4,13 +4,7 @@
     nix.url = "https://flakehub.com/f/DeterminateSystems/nix-src/*";
     finix.url = "github:finix-community/finix?ref=main";
     community-modules.url = "github:finix-community/community-modules";
-    nix-cachyos-kernel.url = "https://git.oss.uzinfocom.uz/mirrors/nix-cachyos-kernel?ref=release";
-    /*
-      serpantinum = {
-          url = "github:ilyamiro/serpantinum";
-          inputs.nixpkgs.follows = "nixpkgs";
-        };
-    */
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
   };
 
   outputs =
@@ -21,7 +15,6 @@
       community-modules,
       nix-cachyos-kernel,
       nix,
-      #serpantinum,
     }:
     let
       pkgs = import nixpkgs {

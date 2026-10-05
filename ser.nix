@@ -130,12 +130,12 @@
       ];
       substituters = [
         "https://finix.cachix.org"
-        "https://cache.xinux.uz"
+        "https://attic.xuyh0120.win/lantian"
         "https://install.determinate.systems"
       ];
       trusted-public-keys = [
         "finix.cachix.org-1:0ejikHDeCp0UErsduUUHcg9IJczY2/h2e5132Z/As/c="
-        "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="
+        "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
         "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
       ];
     };
