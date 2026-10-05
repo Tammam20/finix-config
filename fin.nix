@@ -14,7 +14,7 @@
 
   finit.rlimits = {
     hard.hard = 8388608; # no more than 8MB of address space
-    soft.core = "unlimited"; # core dumps may be arbitrarily large
+    soft.soft = "unlimited"; # core dumps may be arbitrarily large
     cpu = 10; # soft & hard = 10 sec
   };
 
