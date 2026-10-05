@@ -12,11 +12,13 @@
   # graphical runlevel
   finit.runlevel = 3;
 
-  finit.rlimits = {
-    hard.hard = 8388608; # no more than 8MB of address space
-    soft.soft = "unlimited"; # core dumps may be arbitrarily large
-    cpu = 10; # soft & hard = 10 sec
-  };
+  /*
+    finit.rlimits = {
+      hard.hard = 8388608; # no more than 8MB of address space
+      soft.soft = "unlimited"; # core dumps may be arbitrarily large
+      cpu = 10; # soft & hard = 10 sec
+    };
+  */
 
   finit.cgroups.system.settings = {
     "cpu.weight" = 100;
