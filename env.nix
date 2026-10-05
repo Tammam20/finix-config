@@ -45,7 +45,7 @@
     pkgs.playerctl
     pkgs.papirus-icon-theme
     pkgs.gnome-themes-extra
-#    pkgs.lxqt.lxqt-policykit
+    #    pkgs.lxqt.lxqt-policykit
     pkgs.wl-clip-persist
     pkgs.waybar
     pkgs.wev
@@ -71,7 +71,8 @@
     pkgs.multimarkdown
     pkgs.qbittorrent
     pkgs.nixfmt
-    pkgs.nil
+    #pkgs.nil
+    pkgs.nixd
     pkgs.emacs
     pkgs.tldr
     pkgs.pciutils
@@ -111,13 +112,13 @@
   environment.etc.set-environment.text = ''
     export PATH="/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:$PATH"
     export NIX_PATH="nixpkgs=${pkgs.path}"
-  '';   
+  '';
 
   # shell fix  ln -sf ${pkgs.blesh}/share/blesh $out/share/blesh
   environment.extraSetup = ''
-    			ln -sf ${pkgs.bash-completion}/share/bash-completion $out/share/bash-completion
-				
-    		  '';
+        			ln -sf ${pkgs.bash-completion}/share/bash-completion $out/share/bash-completion
+    				
+        		  '';
 
   environment.pathsToLink = [ "/share/man" ];
   environment.variables.MANPATH = "/run/current-system/sw/share/man";

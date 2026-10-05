@@ -9,7 +9,7 @@ let
 in
 buildPythonPackage rec {
   pname = "python-validity";
-  version = "0.15";
+  version = "0.13";
 
   pyproject = true;
   build-system = [ python3Packages.setuptools ];
@@ -18,7 +18,7 @@ buildPythonPackage rec {
     owner = "uunicorn";
     repo = pname;
     rev = "${version}";
-    sha256 = "sha256-1jw4ixpy3lbi5791z8wx8hslc9b6ldwqf9hg99lmsxx7xvnmgya5"; # set to lib.fakeSha256 first to get the hash
+    sha256 = "sha256-6NbxeokbGW5yP3g9Q/W3k0JiU6g+qyeZfKfw0nBJ37o="; # set to lib.fakeSha256 first to get the hash
   };
 
   patches = [
