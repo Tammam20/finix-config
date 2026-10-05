@@ -33,12 +33,14 @@
     dhcpcd.enable = true;
     thermald.enable = true;
     gvfs.enable = true;
-    
-      /*power-profiles-daemon.enable = true;
+
+    /*
+      power-profiles-daemon.enable = true;
       power-profiles-daemon.extraGroups =  [
       config.services.seatd.group
-      ];*/
-    
+      ];
+    */
+
     earlyoom.enable = true;
     earlyoom.extraArgs = [
       "-r"
@@ -57,7 +59,7 @@
     ];
     iwd.enable = true;
     seatd.enable = true;
-    
+
     tlp.enable = true;
     tlp.settings = {
       CPU_SCALING_GOVERNOR_ON_AC = "powersave";
@@ -140,41 +142,42 @@
   };
 
   # TODO: shouldn't this just be included by default?
-  
-    services.mdevd.hotplugRules = lib.mkMerge [
-    	    (lib.mkAfter ''
-    	      SUBSYSTEM=input;.* root:input 660
-    	      SUBSYSTEM=sound;.* root:audio 660
-    	    '')
 
-    	    ''
-    	      grsec       root:root 660
-    	      kmem        root:root 640
-    	      mem         root:root 640
-    	      port        root:root 640
-    	      console     root:tty 600 @chmod 600 $MDEV
-    	      card[0-9]   root:video 660 =dri/
+  services.mdevd.hotplugRules = lib.mkMerge [
+    (lib.mkAfter ''
+      	      SUBSYSTEM=input;.* root:input 660
+      	      SUBSYSTEM=sound;.* root:audio 660
+      	    '')
 
-    	      # alsa sound devices and audio stuff
-    	      pcm.*       root:audio 0660 =snd/
-    	      control.*   root:audio 0660 =snd/
-    	      midi.*      root:audio 0660 =snd/
-    	      seq         root:audio 0660 =snd/
-    	      timer       root:audio 0660 =snd/
+    ''
+      	      grsec       root:root 660
+      	      kmem        root:root 640
+      	      mem         root:root 640
+      	      port        root:root 640
+      	      console     root:tty 600 @chmod 600 $MDEV
+      	      card[0-9]   root:video 660 =dri/
 
-    	      adsp        root:audio 0660 >sound/
-    	      audio       root:audio 0660 >sound/
-    	      dsp         root:audio 0660 >sound/
-    	      mixer       root:audio 0660 >sound/
-    	      sequencer.* root:audio 0660 >sound/
+      	      # alsa sound devices and audio stuff
+      	      pcm.*       root:audio 0660 =snd/
+      	      control.*   root:audio 0660 =snd/
+      	      midi.*      root:audio 0660 =snd/
+      	      seq         root:audio 0660 =snd/
+      	      timer       root:audio 0660 =snd/
 
-    	      event[0-9]+ root:input 660 =input/
-    	      mice        root:input 660 =input/
-    	      mouse[0-9]+ root:input 660 =input/
+      	      adsp        root:audio 0660 >sound/
+      	      audio       root:audio 0660 >sound/
+      	      dsp         root:audio 0660 >sound/
+      	      mixer       root:audio 0660 >sound/
+      	      sequencer.* root:audio 0660 >sound/
 
-    	      rfkill      root:${config.services.seatd.group} 660
-    	    ''
-    	  ];
+      	      event[0-9]+ root:input 660 =input/
+      	      mice        root:input 660 =input/
+      	      mouse[0-9]+ root:input 660 =input/
 
-   providers.firewall.allowedTCPPorts = [ 22 ];
-  }
+      	      rfkill      root:${config.services.seatd.group} 660
+      	      ntsync 0:0 666
+      	    ''
+  ];
+
+  providers.firewall.allowedTCPPorts = [ 22 ];
+}
