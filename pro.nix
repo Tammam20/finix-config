@@ -34,6 +34,7 @@
     };
     sudo.enable = true;
     fastfetch.enable = true;
+    #fish.enable = true;
     micro.enable = true;
     micro.defaultEditor = true;
     nano.enable = true;

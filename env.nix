@@ -91,9 +91,10 @@
     pkgs.steam-run
     pkgs.rvgl-launcher
     pkgs.localsend
+    pkgs.appimage-run
     #pkgs.matugen
     #pkgs.zsh
-    pkgs.blesh
+    #pkgs.blesh
     #pkgs.inputs.noctalia.packages.${pkgs.stdenv.system}.default
     #inputs.serpantinum.packages.${pkgs.stdenv.system}.default
     #pkgs.noctalia
