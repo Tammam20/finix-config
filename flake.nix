@@ -4,7 +4,7 @@
     nix.url = "https://flakehub.com/f/DeterminateSystems/nix-src/*";
     finix.url = "github:finix-community/finix?ref=main";
     community-modules.url = "github:finix-community/community-modules";
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
+    #nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
   };
 
   outputs =
@@ -13,7 +13,7 @@
       nixpkgs,
       finix,
       community-modules,
-      nix-cachyos-kernel,
+      # nix-cachyos-kernel,
       nix,
     }:
     let
@@ -22,7 +22,7 @@
 
         config.allowUnfree = true;
         overlays = [
-          nix-cachyos-kernel.overlays.pinned
+          #    nix-cachyos-kernel.overlays.pinned
         ];
       };
       localPackages = import ./pkgs/default.nix { pkgs = pkgs; };

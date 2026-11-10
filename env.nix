@@ -27,7 +27,7 @@
     pkgs.nixos-rebuild-ng
     pkgs.iputils
     pkgs.iproute2
-    pkgs.brave
+    pkgs.brave-origin
     pkgs.chezmoi
     pkgs.gh
     pkgs.keepassxc

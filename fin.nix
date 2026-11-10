@@ -12,9 +12,11 @@
   # graphical runlevel
   finit.runlevel = 3;
 
-  finit.rlimits = {
-    nofile = 524288; # soft & hard
-  };
+  /*
+    finit.rlimits = {
+      nofile = 524288; # soft & hard
+    };
+  */
 
   finit.cgroups.system.settings = {
     "cpu.weight" = 100;
