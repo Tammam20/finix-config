@@ -9,7 +9,7 @@
 
 {
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxKernel.kernels.linux_default;
+  boot.kernelPackages = pkgs.linuxPackages;
   #pkgs.cachyosKernels.linuxPackages-cachyos-latest-x86_64-v3;
 
   boot.kernelModules = [ "ntsync" ];
