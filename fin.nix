@@ -18,7 +18,7 @@
     };
   */
 
-  finit.cgroups.system.settings = {
+  finit.cgroups.system = {
     "cpu.weight" = 100;
   };
 
