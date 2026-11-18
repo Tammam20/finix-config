@@ -8,6 +8,11 @@
 }:
 
 {
+
+  imports = [
+    modules.limine
+
+  ];
   # Use stable kernel.
   boot.kernelPackages = pkgs.linuxPackages;
   #pkgs.cachyosKernels.linuxPackages-cachyos-latest-x86_64-v3;
@@ -27,11 +32,13 @@
 
   services = {
 
-    earlyoom.enable = true;
-    earlyoom.extraArgs = [
-      "-r"
-      "3600"
-    ];
+    earlyoom = {
+      enable = true;
+      extraArgs = [
+        "-r"
+        "3600"
+      ];
+    };
 
     getty.enable = true;
 
@@ -39,9 +46,11 @@
 
     fwupd.enable = true;
 
-    fstrim.enable = true;
+    fstrim = {
+      enable = true;
 
-    fstrim.interval = "daily";
+      fstrim.interval = "daily";
+    };
 
     chrony.enable = true;
 
