@@ -26,6 +26,8 @@
 
     upower.enable = true;
 
+    polkit.enable = true;
+
     udev.enable = true;
 
     gvfs.enable = true;
