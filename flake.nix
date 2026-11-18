@@ -25,7 +25,7 @@
           #    nix-cachyos-kernel.overlays.pinned
         ];
       };
-      localPackages = import ./pkgs/default.nix { pkgs = pkgs; };
+      #localPackages = import ./pkgs/default.nix { pkgs = pkgs; };
     in
     {
 
@@ -34,22 +34,24 @@
         inherit (pkgs) lib;
 
         specialArgs = {
-          inherit localPackages;
+          #   inherit localPackages;
           inherit inputs;
         };
 
         modules = [
-          ./hardware-configuration.nix
-          ./validity.nix
-          ./boo.nix
-          ./env.nix
-          ./ext.nix
-          ./fin.nix
-          ./imp.nix
-          ./pro.nix
-          ./ser.nix
-          ./use.nix
-          ./xdg.nix
+          ./boot.nix
+          ./gui.nix
+          ./imports.nix
+          ./miscPkgs.nix
+          ./net.nix
+          ./nix.nix
+          ./pw.nix
+          ./shell.nix
+          ./t480.nix
+          ./users.nix
+          #./validity.nix
+          ./virtualisation.nix
+          ./zzz.nix
           community-modules.nixosModules.fastfetch
           { nixpkgs.pkgs = pkgs; }
         ];

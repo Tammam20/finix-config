@@ -9,9 +9,10 @@
 
 {
   imports = with modules; [
+    avahi
     fstrim
     fcron
-    bluetooth
+    #bluetooth
     gnome-keyring
     gvfs
     micro
@@ -21,8 +22,8 @@
     sway
     #hyprland
     thermald
-    #fwupd
-    #upower
+    fwupd
+    upower
     brightnessctl
     seahorse
     zzz

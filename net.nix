@@ -17,13 +17,14 @@
 
     iwd.enable = true;
 
-    # Set your time zone.
-    time.timeZone = "Asia/Baghdad";
-
     #bluetooth.enable = true;
     #bluetooth.settings.Policy.AutoEnable = false;
 
-    providers.firewall.allowedTCPPorts = [ 22 ];
-
   };
+
+  # Set your time zone.
+  time.timeZone = "Asia/Baghdad";
+
+  # firewall configuration
+  providers.firewall.allowedTCPPorts = [ 22 ];
 }

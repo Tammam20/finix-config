@@ -27,8 +27,7 @@
 
     fstrim = {
       enable = true;
-
-      fstrim.interval = "daily";
+      interval = "daily";
     };
 
     chrony.enable = true;
