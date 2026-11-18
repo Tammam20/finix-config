@@ -10,8 +10,6 @@
 
 {
   environment.systemPackages = [
-    localPackages.python-validity
-    pkgs.fprintd
     pkgs.gcc
     pkgs.xdg-utils
     pkgs.adwaita-qt
@@ -46,7 +44,7 @@
     pkgs.papirus-icon-theme
     pkgs.gnome-themes-extra
     #    pkgs.lxqt.lxqt-policykit
-    pkgs.wl-clip-persist
+    #pkgs.wl-clip-persist
     pkgs.waybar
     pkgs.wev
     pkgs.pavucontrol

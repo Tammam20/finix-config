@@ -8,6 +8,11 @@
 }:
 
 {
+
+  finit.services.nix-daemon = {
+    environment.CURL_CA_BUNDLE = config.security.pki.caBundle;
+  };
+
   services.nix-daemon = {
     enable = true;
     package = inputs.nix.packages.${pkgs.stdenv.system}.default;

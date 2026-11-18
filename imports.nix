@@ -26,7 +26,7 @@
     brightnessctl
     seahorse
     zzz
-
+    limine
     tlp
     #power-profiles-daemon
     bash

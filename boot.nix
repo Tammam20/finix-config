@@ -9,10 +9,6 @@
 
 {
 
-  imports = [
-    modules.limine
-
-  ];
   # Use stable kernel.
   boot.kernelPackages = pkgs.linuxPackages;
   #pkgs.cachyosKernels.linuxPackages-cachyos-latest-x86_64-v3;
@@ -57,4 +53,18 @@
     fcron.enable = true;
 
   };
+
+  # graphical runlevel
+  finit.runlevel = 3;
+
+  /*
+    	    finit.rlimits = {
+    	      nofile = 524288; # soft & hard
+    	    };
+  */
+
+  finit.cgroups.system = {
+    "cpu.weight" = 100;
+  };
+
 }
