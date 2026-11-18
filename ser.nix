@@ -22,17 +22,13 @@
       #pkgs.tumbler
     ];
 
-    mdevd.enable = true;
-    # required for graphical environments
-    mdevd.nlgroups = 4;
-    #gardendevd.enable = true;
-
     chrony.enable = true;
     fcron.enable = true;
     getty.enable = true;
     dhcpcd.enable = true;
     thermald.enable = true;
     gvfs.enable = true;
+    avahi.enable = true;
 
     /*
       power-profiles-daemon.enable = true;
@@ -46,12 +42,13 @@
       "-r"
       "3600"
     ];
-    bluetooth.enable = true;
-    bluetooth.settings.Policy.AutoEnable = false;
+    udev.enable = true;
+    #bluetooth.enable = true;
+    #bluetooth.settings.Policy.AutoEnable = false;
     fstrim.enable = true;
     fstrim.interval = "daily";
-    #upower.enable = true;
-    #fwupd.enable = true;
+    upower.enable = true;
+    fwupd.enable = true;
     nftables.enable = true;
     rtkit.enable = true;
     rtkit.extraGroups = [
@@ -139,43 +136,47 @@
     };
   };
 
-  # TODO: shouldn't this just be included by default?
+  /*
+    mdevd.enable = true;
+    # required for graphical environments
+    mdevd.nlgroups = 4;
+    #gardendevd.enable = true;
+      services.mdevd.hotplugRules = lib.mkMerge [
+        (lib.mkAfter ''
+          	      SUBSYSTEM=input;.* root:input 660
+          	      SUBSYSTEM=sound;.* root:audio 660
+          	    '')
 
-  services.mdevd.hotplugRules = lib.mkMerge [
-    (lib.mkAfter ''
-      	      SUBSYSTEM=input;.* root:input 660
-      	      SUBSYSTEM=sound;.* root:audio 660
-      	    '')
+        ''
+          	      grsec       root:root 660
+          	      kmem        root:root 640
+          	      mem         root:root 640
+          	      port        root:root 640
+          	      console     root:tty 600 @chmod 600 $MDEV
+          	      card[0-9]   root:video 660 =dri/
 
-    ''
-      	      grsec       root:root 660
-      	      kmem        root:root 640
-      	      mem         root:root 640
-      	      port        root:root 640
-      	      console     root:tty 600 @chmod 600 $MDEV
-      	      card[0-9]   root:video 660 =dri/
+          	      # alsa sound devices and audio stuff
+          	      pcm.*       root:audio 0660 =snd/
+          	      control.*   root:audio 0660 =snd/
+          	      midi.*      root:audio 0660 =snd/
+          	      seq         root:audio 0660 =snd/
+          	      timer       root:audio 0660 =snd/
 
-      	      # alsa sound devices and audio stuff
-      	      pcm.*       root:audio 0660 =snd/
-      	      control.*   root:audio 0660 =snd/
-      	      midi.*      root:audio 0660 =snd/
-      	      seq         root:audio 0660 =snd/
-      	      timer       root:audio 0660 =snd/
+          	      adsp        root:audio 0660 >sound/
+          	      audio       root:audio 0660 >sound/
+          	      dsp         root:audio 0660 >sound/
+          	      mixer       root:audio 0660 >sound/
+          	      sequencer.* root:audio 0660 >sound/
 
-      	      adsp        root:audio 0660 >sound/
-      	      audio       root:audio 0660 >sound/
-      	      dsp         root:audio 0660 >sound/
-      	      mixer       root:audio 0660 >sound/
-      	      sequencer.* root:audio 0660 >sound/
+          	      event[0-9]+ root:input 660 =input/
+          	      mice        root:input 660 =input/
+          	      mouse[0-9]+ root:input 660 =input/
 
-      	      event[0-9]+ root:input 660 =input/
-      	      mice        root:input 660 =input/
-      	      mouse[0-9]+ root:input 660 =input/
-
-      	      rfkill      root:${config.services.seatd.group} 660
-      	      ntsync 0:0 666
-      	    ''
-  ];
+          	      rfkill      root:${config.services.seatd.group} 660
+          	      ntsync 0:0 666
+          	    ''
+      ];
+  */
 
   providers.firewall.allowedTCPPorts = [ 22 ];
 }
