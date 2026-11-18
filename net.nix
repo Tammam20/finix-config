@@ -17,6 +17,9 @@
 
     iwd.enable = true;
 
+    # Set your time zone.
+    time.timeZone = "Asia/Baghdad";
+
     #bluetooth.enable = true;
     #bluetooth.settings.Policy.AutoEnable = false;
 

@@ -8,6 +8,7 @@
 }:
 
 {
+
   services = {
     # dbus
 
@@ -35,6 +36,21 @@
     rtkit.enable = true;
     rtkit.extraGroups = [
       config.services.seatd.group
+    ];
+
+    xdg.autostart.enable = true;
+    xdg.icons.enable = true;
+    xdg.mime.enable = true;
+    xdg.portal.enable = true;
+    xdg.terminal-exec.enable = true;
+    xdg.terminal-exec.settings = {
+      default = [
+        "foot.desktop"
+      ];
+    };
+    xdg.portal.portals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-wlr
     ];
 
     /*
@@ -79,4 +95,52 @@
         ];
     */
   };
+
+  # packages with required configurations
+  programs = {
+    sudo.enable = true;
+    fastfetch.enable = true;
+    #fish.enable = true;
+    micro.enable = true;
+    micro.defaultEditor = true;
+    nano.enable = true;
+    nano.defaultEditor = false;
+    bash.enable = true;
+    sway.enable = true;
+    #sway.package = pkgs.swayfx;
+    #hyprland.enable = true;
+    pmount.enable = true;
+    seahorse.enable = true;
+    gnome-keyring.enable = true;
+    brightnessctl.enable = true;
+    zzz.enable = true;
+    resolvconf.enable = true;
+
+    # audio
+    pipewire.enable = true;
+    pipewire.jack.enable = true;
+    pipewire.alsa.enable = true;
+    pipewire.alsa.support32Bit = true;
+    wireplumber.enable = true;
+  };
+
+  fonts = {
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        #serif      = [ "Noto Serif" ];
+        #sansSerif  = [ "Noto Sans" ];
+        monospace = [ "JetBrainsMono Nerd Font Mono" ];
+        #emoji      = [ "Noto Color Emoji" ];
+      };
+    };
+
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.symbols-only
+      symbola
+    ];
+  };
+
 }
