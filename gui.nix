@@ -38,21 +38,6 @@
       config.services.seatd.group
     ];
 
-    xdg.autostart.enable = true;
-    xdg.icons.enable = true;
-    xdg.mime.enable = true;
-    xdg.portal.enable = true;
-    xdg.terminal-exec.enable = true;
-    xdg.terminal-exec.settings = {
-      default = [
-        "foot.desktop"
-      ];
-    };
-    xdg.portal.portals = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-wlr
-    ];
-
     /*
       mdevd.enable = true;
       # required for graphical environments
@@ -142,5 +127,20 @@
       symbola
     ];
   };
+
+  xdg.autostart.enable = true;
+  xdg.icons.enable = true;
+  xdg.mime.enable = true;
+  xdg.portal.enable = true;
+  xdg.terminal-exec.enable = true;
+  xdg.terminal-exec.settings = {
+    default = [
+      "foot.desktop"
+    ];
+  };
+  xdg.portal.portals = [
+    pkgs.xdg-desktop-portal-gtk
+    pkgs.xdg-desktop-portal-wlr
+  ];
 
 }
