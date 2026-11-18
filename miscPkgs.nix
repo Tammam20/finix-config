@@ -71,7 +71,7 @@
     pkgs.nixfmt
     #pkgs.nil
     pkgs.nixd
-    pkgs.emacs
+    #pkgs.emacs
     pkgs.tldr
     pkgs.pciutils
     pkgs.usbutils
