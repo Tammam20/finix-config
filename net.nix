@@ -27,4 +27,5 @@
 
   # firewall configuration
   providers.firewall.allowedTCPPorts = [ 22 ];
+  providers.firewall.allowedUDPPorts = [ 5353 ];
 }
