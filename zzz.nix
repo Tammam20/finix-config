@@ -15,13 +15,13 @@
   # configuration for acpid
   services.acpid.handlers = {
     sleepOnLidClose.enable = true;
-    sleepOnLidClose.action = "sudo zzz";
+    sleepOnLidClose.action = "zzz";
     sleepOnLidClose.event = "button/lid.*";
   };
 
   services.acpid.handlers = {
     sleepOnPowerpress.enable = true;
-    sleepOnPowerpress.action = "sudo poweroff";
+    sleepOnPowerpress.action = "poweroff";
     sleepOnPowerpress.event = "button/power.*";
   };
 
