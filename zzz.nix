@@ -15,13 +15,13 @@
   # configuration for acpid
   services.acpid.handlers = {
     sleepOnLidClose.enable = true;
-    sleepOnLidClose.action = "zzz";
+    sleepOnLidClose.action = "/run/current-system/sw/bin/zz";
     sleepOnLidClose.event = "button/lid.*";
   };
 
   services.acpid.handlers = {
     sleepOnPowerpress.enable = true;
-    sleepOnPowerpress.action = "poweroff";
+    sleepOnPowerpress.action = "/run/current-system/sw/bin/poweroff";
     sleepOnPowerpress.event = "button/power.*";
   };
 
