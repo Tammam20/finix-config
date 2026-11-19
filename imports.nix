@@ -9,6 +9,7 @@
 
 {
   imports = with modules; [
+    acpid
     avahi
     fstrim
     fcron

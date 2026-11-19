@@ -8,8 +8,10 @@
 }:
 
 {
-  
-    
+  #acpid
+  services.acpid.enable = true;
+
+  #zzz
   providers.privileges.rules = [
     {
       command = "/run/current-system/sw/bin/poweroff";
