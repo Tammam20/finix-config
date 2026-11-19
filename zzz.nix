@@ -15,7 +15,7 @@
   # configuration for acpid
   services.acpid.handlers = {
     sleepOnLidClose.enable = true;
-    sleepOnLidClose.action = "/run/current-system/sw/bin/zz";
+    sleepOnLidClose.action = "/run/current-system/sw/bin/zzz";
     sleepOnLidClose.event = "button/lid.*";
   };
 
