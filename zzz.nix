@@ -16,13 +16,13 @@
   services.acpid.handlers = {
     sleepOnLidClose.enable = true;
     sleepOnLidClose.action = "/run/current-system/sw/bin/zzz";
-    sleepOnLidClose.event = "button/lid.*";
+    sleepOnLidClose.event = "button/lid LID close";
   };
 
   services.acpid.handlers = {
     sleepOnPowerpress.enable = true;
     sleepOnPowerpress.action = "/run/current-system/sw/bin/poweroff";
-    sleepOnPowerpress.event = "button/power.*";
+    sleepOnPowerpress.event = "button/power";
   };
 
   # no password for poweroff/reboot/zzz/ZZZ
