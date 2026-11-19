@@ -98,7 +98,6 @@
     seahorse.enable = true;
     gnome-keyring.enable = true;
     brightnessctl.enable = true;
-    zzz.enable = true;
     resolvconf.enable = true;
 
     # audio
