@@ -10,6 +10,7 @@
 
 {
   environment.systemPackages = [
+    pkgs.androidenv.androidPkgs.platform-tools
     pkgs.gcc
     pkgs.xdg-utils
     pkgs.adwaita-qt
