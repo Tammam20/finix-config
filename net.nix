@@ -32,6 +32,7 @@
   providers.firewall.allowedUDPPorts = [
     5353
     1900
+    2310
   ];
 
   providers.firewall.allowedTCPPortRanges = [
