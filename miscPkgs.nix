@@ -20,9 +20,9 @@
     pkgs.qgnomeplatform-qt6
     #pkgs.bluez
     #pkgs.blueman
-    pkgs.vim
+    #pkgs.vim
     pkgs.wget
-    pkgs.nano
+    #pkgs.nano
     pkgs.git
     pkgs.nixos-rebuild-ng
     pkgs.iputils
@@ -66,7 +66,7 @@
     */
     pkgs.file-roller
     pkgs.shellcheck
-    pkgs.powertop
+    #pkgs.powertop
     pkgs.s-tui
     pkgs.multimarkdown
     pkgs.qbittorrent
@@ -74,24 +74,24 @@
     #pkgs.nil
     pkgs.nixd
     #pkgs.emacs
-    pkgs.tldr
+    #pkgs.tldr
     pkgs.pciutils
     pkgs.usbutils
-    pkgs.coreutils
-    pkgs.clang
-    pkgs.ripgrep
+    #pkgs.coreutils
+    #pkgs.clang
+    #pkgs.ripgrep
     pkgs.fd
     pkgs.lshw
-    pkgs.ollama
+    #pkgs.ollama
     pkgs.bash-completion
     pkgs.man
-    pkgs.lutris
-    pkgs.protonup-qt
-    pkgs.steam
-    pkgs.steam-run
+    #pkgs.lutris
+    #pkgs.protonup-qt
+    #pkgs.steam
+    #pkgs.steam-run
     pkgs.rvgl-launcher
-    pkgs.localsend
-    pkgs.appimage-run
+    #pkgs.localsend
+    #pkgs.appimage-run
     #pkgs.matugen
     #pkgs.zsh
     #pkgs.blesh
