@@ -65,6 +65,8 @@
       	      pkgs.virtiofsd
     */
     pkgs.file-roller
+    pkgs.xdg-user-dirs
+
     # python stuff
     pkgs.python315
     pkgs.python3Packages.python-lsp-server
