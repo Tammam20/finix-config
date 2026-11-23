@@ -66,7 +66,7 @@
     */
     pkgs.file-roller
     # python stuff
-    pkgs.python3
+    pkgs.python315
     pkgs.python3Packages.python-lsp-server
     pkgs.python3Packages.python-lsp-jsonrpc
     pkgs.python3Packages.python-lsp-black
