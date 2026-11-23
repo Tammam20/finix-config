@@ -72,7 +72,7 @@
     pkgs.python314Packages.pylsl
     pkgs.python314Packages.pylsp-rope
     pkgs.python314Packages.pip
-
+    pkgs.ruff
     pkgs.shellcheck
     #pkgs.powertop
     pkgs.s-tui
