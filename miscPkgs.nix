@@ -67,12 +67,16 @@
     pkgs.file-roller
     # python stuff
     pkgs.python3
-    pkgs.python314Packages.python-lsp-server
-    pkgs.python314Packages.pylsp-mypy
-    pkgs.python314Packages.pylsl
-    pkgs.python314Packages.pylsp-rope
-    pkgs.python314Packages.pip
-    pkgs.ruff
+    pkgs.python3Packages.python-lsp-server
+    pkgs.python3Packages.python-lsp-jsonrpc
+    pkgs.python3Packages.python-lsp-black
+    pkgs.python3Packages.python-lsp-ruff
+    pkgs.python3Packages.pyls-isort
+    pkgs.python3Packages.pyls-flake8
+    pkgs.python3Packages.flake8
+    pkgs.python3Packages.isort
+    pkgs.python3Packages.black
+
     pkgs.shellcheck
     #pkgs.powertop
     pkgs.s-tui
