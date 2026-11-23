@@ -65,6 +65,9 @@
       	      pkgs.virtiofsd
     */
     pkgs.file-roller
+    pkgs.python3
+    pkgs.python314Packages.python-lsp-server
+    pkgs.python314Packages.pip
     pkgs.shellcheck
     #pkgs.powertop
     pkgs.s-tui
