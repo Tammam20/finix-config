@@ -45,7 +45,7 @@
     pkgs.playerctl
     pkgs.papirus-icon-theme
     pkgs.gnome-themes-extra
-    #    pkgs.lxqt.lxqt-policykit
+    #pkgs.lxqt.lxqt-policykit
     #pkgs.wl-clip-persist
     pkgs.waybar
     pkgs.wev
@@ -65,9 +65,14 @@
       	      pkgs.virtiofsd
     */
     pkgs.file-roller
+    # python stuff
     pkgs.python3
     pkgs.python314Packages.python-lsp-server
+    pkgs.python314Packages.pylsp-mypy
+    pkgs.python314Packages.pylsl
+    pkgs.python314Packages.pylsp-rope
     pkgs.python314Packages.pip
+
     pkgs.shellcheck
     #pkgs.powertop
     pkgs.s-tui
