@@ -28,6 +28,7 @@
     pkgs.iputils
     pkgs.iproute2
     pkgs.brave-origin
+    pkgs.dino
     pkgs.chezmoi
     pkgs.gh
     pkgs.keepassxc
