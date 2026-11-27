@@ -11,6 +11,8 @@
 {
   environment.systemPackages = [
     pkgs.androidenv.androidPkgs.platform-tools
+    pkgs.waydroid-nftables
+    pkgs.waydroid-helper
     pkgs.gnused
     pkgs.gcc
     pkgs.xdg-utils
@@ -79,6 +81,7 @@
     pkgs.python3Packages.flake8
     pkgs.python3Packages.isort
     pkgs.python3Packages.black
+    pkgs.python3Packages.pygame
 
     pkgs.shellcheck
     #pkgs.powertop
