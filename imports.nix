@@ -10,6 +10,7 @@
 {
   imports = with modules; [
     acpid
+    android
     avahi
     fstrim
     fcron

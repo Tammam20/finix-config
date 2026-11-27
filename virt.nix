@@ -1,0 +1,6 @@
+{
+  ...
+}:
+{
+  virtualisation.android.enable = true;
+}
