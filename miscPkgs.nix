@@ -29,7 +29,7 @@
     pkgs.nixos-rebuild-ng
     pkgs.iputils
     pkgs.iproute2
-    pkgs.brave-origin
+    pkgs.librewolf
     pkgs.dino
     pkgs.chezmoi
     pkgs.gh
